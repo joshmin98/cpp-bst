@@ -907,3 +907,58 @@ Running main() from gtest_main.cc
 [----------] Global test environment set-up.
 [----------] 4 tests from RotateTest
 [ RUN      ] RotateTest.Test1_LeftRotate
+g++ -g -Wall -std=c++11  hw7_rotate_test.cpp -I /usr/include/gtest/ -l gtest -l gtest_main -pthread -o rotate_test
+valgrind --tool=memcheck --leak-check=yes ./bst_test
+Running main() from gtest_main.cc
+[==========] Running 14 tests from 1 test case.
+[----------] Global test environment set-up.
+[----------] 14 tests from BSTTest
+[ RUN      ] BSTTest.Test1_Construction
+[       OK ] BSTTest.Test1_Construction (4 ms)
+[ RUN      ] BSTTest.Test2_EmptyTree
+[       OK ] BSTTest.Test2_EmptyTree (3 ms)
+[ RUN      ] BSTTest.Test3_SingleInsert
+[       OK ] BSTTest.Test3_SingleInsert (5 ms)
+[ RUN      ] BSTTest.Test4_BalancedInsert
+[       OK ] BSTTest.Test4_BalancedInsert (7 ms)
+[ RUN      ] BSTTest.Test5_UnbalancedInsert
+[       OK ] BSTTest.Test5_UnbalancedInsert (5 ms)
+[ RUN      ] BSTTest.Test6_SingleRemove
+[       OK ] BSTTest.Test6_SingleRemove (2 ms)
+[ RUN      ] BSTTest.Test7_RightChildRemove
+[       OK ] BSTTest.Test7_RightChildRemove (3 ms)
+[ RUN      ] BSTTest.Test8_LeftChildRemove
+[       OK ] BSTTest.Test8_LeftChildRemove (3 ms)
+[ RUN      ] BSTTest.Test9_TwoChildrenRemove
+hw7_bst_test.cpp:152: Failure
+      Expected: 2
+To be equal to: bst.height()
+      Which is: 1
+hw7_bst_test.cpp:160: Failure
+Expected: (nullptr) != (root->getRight()), actual: 8-byte object <00-00 00-00 00-00 00-00> vs NULL
+[  FAILED  ] BSTTest.Test9_TwoChildrenRemove (43 ms)
+[ RUN      ] BSTTest.Test10_TwoChildrenRemove
+[       OK ] BSTTest.Test10_TwoChildrenRemove (5 ms)
+[ RUN      ] BSTTest.Test11_InsertAfterClear
+[       OK ] BSTTest.Test11_InsertAfterClear (4 ms)
+[ RUN      ] BSTTest.Test11_InsertAfterRemoveRoot
+[       OK ] BSTTest.Test11_InsertAfterRemoveRoot (3 ms)
+[ RUN      ] BSTTest.Stress1_Insert1000
+[       OK ] BSTTest.Stress1_Insert1000 (21 ms)
+[ RUN      ] BSTTest.Stress2_Remove1000
+[       OK ] BSTTest.Stress2_Remove1000 (52 ms)
+[----------] 14 tests from BSTTest (166 ms total)
+
+[----------] Global test environment tear-down
+[==========] 14 tests from 1 test case ran. (185 ms total)
+[  PASSED  ] 13 tests.
+[  FAILED  ] 1 test, listed below:
+[  FAILED  ] BSTTest.Test9_TwoChildrenRemove
+
+ 1 FAILED TEST
+valgrind --tool=memcheck --leak-check=yes ./rotate_test
+Running main() from gtest_main.cc
+[==========] Running 4 tests from 1 test case.
+[----------] Global test environment set-up.
+[----------] 4 tests from RotateTest
+[ RUN      ] RotateTest.Test1_LeftRotate

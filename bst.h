@@ -622,6 +622,9 @@ void BinarySearchTree<Key, Value>::remove(const Key &key) {
     }
 
     delete pred;
+    if (newRoot == mRoot) {
+      updateHeight(newRoot);
+    } 
     updateHeight(predParent);
   }
 }

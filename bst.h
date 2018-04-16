@@ -189,7 +189,7 @@ public:
   BinarySearchTree();          // TODO
   virtual ~BinarySearchTree(); // TODO
   int height();                // TODO
-  int updateHeight(Node<Key, Value> *root);
+  void updateHeight(Node<Key, Value> *root);
   bool isBalanced(); // TODO
   bool isBalancedHelper(Node<Key, Value> *root);
   virtual void insert(const std::pair<const Key, Value> &keyValuePair); // TODO
@@ -391,6 +391,9 @@ BinarySearchTree<Key, Value>::find(const Key &key) const {
  */
 template <typename Key, typename Value>
 int BinarySearchTree<Key, Value>::height() {
+  if (mRoot == NULL) {
+    return 0;
+  }
   return mRoot->getHeight();
 }
 
@@ -403,9 +406,19 @@ bool BinarySearchTree<Key, Value>::isBalancedHelper(Node<Key, Value> *root) {
   if (root == NULL) {
     return true;
   }
-  leftHeight = root->getHeight();
-  rightHeight = root->getHeight();
-  if (abs(leftHeight - rightHeight) && isBalancedHelper(root->getLeft()) &&
+  Node<Key, Value> *left = root->getLeft();
+  Node<Key, Value> *right = root->getRight();
+  if (left == NULL) {
+    leftHeight = 0;
+  } else {
+    leftHeight = left->getHeight();
+  }
+  if (right == NULL) {
+    rightHeight = 0;
+  } else {
+    rightHeight = right->getHeight();
+  }
+  if (abs(leftHeight - rightHeight) <= 1 && isBalancedHelper(root->getLeft()) &&
       isBalancedHelper(root->getRight())) {
     return true;
   }
@@ -425,17 +438,27 @@ bool BinarySearchTree<Key, Value>::isBalanced() {
  * A method used to calculate the height of subtrees.
  */
 template <typename Key, typename Value>
-int BinarySearchTree<Key, Value>::updateHeight(Node<Key, Value> *root) {
-  if (root->getLeft() == NULL && root->getRight() == NULL) {
-    return 1;
-  } else {
-    int leftHeight = updateHeight(root->getLeft());
-    int rightHeight = updateHeight(root->getRight());
-    if (leftHeight > rightHeight) {
-      return leftHeight + 1;
+void BinarySearchTree<Key, Value>::updateHeight(Node<Key, Value> *root) {
+  while (root != NULL) {
+    Node<Key, Value> *right = root->getRight();
+    Node<Key, Value> *left = root->getLeft();
+    int rightHeight, leftHeight;
+    if (right == NULL) {
+      rightHeight = 0;
     } else {
-      return rightHeight + 1;
+      rightHeight = right->getHeight();
     }
+    if (left == NULL) {
+      leftHeight = 0;
+    } else {
+      leftHeight = left->getHeight();
+    }
+    if (leftHeight > rightHeight) {
+      root->setHeight(leftHeight + 1);
+    } else {
+      root->setHeight(rightHeight + 1);
+    }
+    root = root->getParent();
   }
 }
 
@@ -449,22 +472,33 @@ void BinarySearchTree<Key, Value>::insert(
   if (internalFind(keyValuePair.first) != NULL) {
     return;
   }
+
+  if (mRoot == NULL) {
+    mRoot = new Node<Key, Value>(keyValuePair.first, keyValuePair.second, NULL);
+    return;
+  }
+
   Node<Key, Value> *newNode =
       new Node<Key, Value>(keyValuePair.first, keyValuePair.second, NULL);
-  newNode->setHeight(1);
   Node<Key, Value> *it = mRoot;
   while (it != NULL) {
     if (newNode->getKey() > it->getKey()) {
-      it = it->getLeft();
-    } else if (newNode->getKey() < it->getKey()) {
+      if (it->getRight() == NULL) {
+        newNode->setParent(it);
+        it->setRight(newNode);
+        break;
+      }
       it = it->getRight();
+    } else if (newNode->getKey() < it->getKey()) {
+      if (it->getLeft() == NULL) {
+        newNode->setParent(it);
+        it->setLeft(newNode);
+        break;
+      }
+      it = it->getLeft();
     }
   }
-  newNode->setParent(it);
-  it = newNode->getParent();
-  while (it != NULL) {
-    it->setHeight(updateHeight(it));
-  }
+  updateHeight(it);
 }
 
 /**
@@ -478,37 +512,45 @@ void BinarySearchTree<Key, Value>::remove(const Key &key) {
   if (removeNode == NULL) {
     return;
   }
+
   // Case 1: Leaf Node
   if (removeNode->getLeft() == NULL && removeNode->getRight() == NULL) {
     Node<Key, Value> *parent = removeNode->getParent();
+    if (parent == NULL) {
+      delete removeNode;
+      mRoot = NULL;
+      return;
+    }
+
     if (parent->getLeft() == removeNode) {
       parent->setLeft(NULL);
     } else {
       parent->setRight(NULL);
     }
-    if (parent->getRight() == NULL && parent->getLeft() == NULL) {
-    }
+
     delete removeNode;
-    Node<Key, Value> *it = parent;
-    while (it != NULL) {
-      it->setHeight(updateHeight(it));
-    }
+    updateHeight(parent);
   }
 
   // Case 2: One left child
   else if (removeNode->getRight() == NULL) {
     Node<Key, Value> *parent = removeNode->getParent();
     Node<Key, Value> *newChild = removeNode->getLeft();
-    if (parent->getRight() == removeNode) {
-      parent->setRight(newChild);
+    if (parent != NULL) {
+      if (parent->getRight() == removeNode) {
+        parent->setRight(newChild);
+      } else {
+        parent->setLeft(newChild);
+      }
     } else {
-      parent->setLeft(newChild);
+      mRoot = newChild;
     }
+
     newChild->setParent(parent);
+
     delete removeNode;
-    Node<Key, Value> *it = newChild;
-    while (it != NULL) {
-      it->setHeight(updateHeight(it));
+    if (parent != NULL) {
+      updateHeight(parent);
     }
   }
 
@@ -516,18 +558,24 @@ void BinarySearchTree<Key, Value>::remove(const Key &key) {
   else if (removeNode->getLeft() == NULL) {
     Node<Key, Value> *parent = removeNode->getParent();
     Node<Key, Value> *newChild = removeNode->getRight();
-    if (parent->getRight() == removeNode) {
-      parent->setRight(newChild);
+    if (parent != NULL) {
+      if (parent->getRight() == removeNode) {
+        parent->setRight(newChild);
+      } else {
+        parent->setLeft(newChild);
+      }
     } else {
-      parent->setLeft(newChild);
+      mRoot = newChild;
     }
+
     newChild->setParent(parent);
+
     delete removeNode;
-    Node<Key, Value> *it = newChild;
-    while (it != NULL) {
-      it->setHeight(updateHeight(it));
+    if (parent != NULL) {
+      updateHeight(parent);
     }
   }
+
   // Case 4: Two children
   else {
     Node<Key, Value> *pred = removeNode->getLeft();
@@ -535,28 +583,46 @@ void BinarySearchTree<Key, Value>::remove(const Key &key) {
       pred = pred->getRight();
     }
 
-    Node<Key, Value> *predParent = pred->getParent();
-    if (predParent->getLeft() == pred) {
-      predParent->setLeft(NULL);
-    } else {
-      predParent->setRight(NULL);
-    }
-    predParent->setHeight(updateHeight(predParent));
-
-    Node<Key, Value> *newSubRoot = new Node<Key, Value>(
-        pred->getKey(), pred->getValue(), removeNode->getParent());
     Node<Key, Value> *removeNodeParent = removeNode->getParent();
-    if (removeNodeParent->getLeft() == removeNode) {
-      removeNodeParent->setLeft(newSubRoot);
-    } else {
-      removeNodeParent->setRight(newSubRoot);
+    Node<Key, Value> *predParent = pred->getParent();
+
+    predParent->setRight(NULL);
+    Node<Key, Value> *newRoot =
+        new Node<Key, Value>(pred->getKey(), pred->getValue(), removeNodeParent);
+    newRoot->setRight(removeNode->getRight());
+    newRoot->setLeft(removeNode->getLeft());
+    if (removeNodeParent != NULL) {
+      if (removeNodeParent->getRight() == removeNode) {
+        removeNodeParent->setRight(newRoot);
+      } else {
+        removeNodeParent->setLeft(newRoot);
+      }
     }
+    Node<Key, Value>* left = removeNode->getLeft();
+    Node<Key, Value>* right = removeNode->getRight();
+    if (left != NULL) {
+      
+    left->setParent(newRoot);
+    }
+    if (right != NULL) {
+      
+    right->setParent(newRoot);
+    }
+    newRoot->setParent(removeNodeParent);
     delete removeNode;
 
-    Node<Key, Value> *it = newSubRoot;
-    while (it != NULL) {
-      it->setHeight(updateHeight(it));
+    if (predParent->getRight() == pred) {
+      predParent->setRight(pred->getLeft());
+    } else {
+      predParent->setLeft(pred->getLeft());
     }
+
+    if (newRoot->getParent() == NULL) {
+      mRoot = newRoot;
+    }
+
+    delete pred;
+    updateHeight(predParent);
   }
 }
 

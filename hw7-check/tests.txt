@@ -1,0 +1,909 @@
+valgrind --tool=memcheck --leak-check=yes ./bst_test
+Running main() from gtest_main.cc
+[==========] Running 14 tests from 1 test case.
+[----------] Global test environment set-up.
+[----------] 14 tests from BSTTest
+[ RUN      ] BSTTest.Test1_Construction
+[       OK ] BSTTest.Test1_Construction (5 ms)
+[ RUN      ] BSTTest.Test2_EmptyTree
+[       OK ] BSTTest.Test2_EmptyTree (3 ms)
+[ RUN      ] BSTTest.Test3_SingleInsert
+[       OK ] BSTTest.Test3_SingleInsert (5 ms)
+[ RUN      ] BSTTest.Test4_BalancedInsert
+[       OK ] BSTTest.Test4_BalancedInsert (7 ms)
+[ RUN      ] BSTTest.Test5_UnbalancedInsert
+[       OK ] BSTTest.Test5_UnbalancedInsert (5 ms)
+[ RUN      ] BSTTest.Test6_SingleRemove
+[       OK ] BSTTest.Test6_SingleRemove (3 ms)
+[ RUN      ] BSTTest.Test7_RightChildRemove
+[       OK ] BSTTest.Test7_RightChildRemove (3 ms)
+[ RUN      ] BSTTest.Test8_LeftChildRemove
+[       OK ] BSTTest.Test8_LeftChildRemove (3 ms)
+[ RUN      ] BSTTest.Test9_TwoChildrenRemove
+hw7_bst_test.cpp:152: Failure
+      Expected: 2
+To be equal to: bst.height()
+      Which is: 1
+hw7_bst_test.cpp:160: Failure
+Expected: (nullptr) != (root->getRight()), actual: 8-byte object <00-00 00-00 00-00 00-00> vs NULL
+[  FAILED  ] BSTTest.Test9_TwoChildrenRemove (41 ms)
+[ RUN      ] BSTTest.Test10_TwoChildrenRemove
+hw7_bst_test.cpp:174: Failure
+      Expected: 2
+To be equal to: bst.height()
+      Which is: 1
+hw7_bst_test.cpp:182: Failure
+Expected: (nullptr) != (root->getRight()), actual: 8-byte object <00-00 00-00 00-00 00-00> vs NULL
+[  FAILED  ] BSTTest.Test10_TwoChildrenRemove (7 ms)
+[ RUN      ] BSTTest.Test11_InsertAfterClear
+[       OK ] BSTTest.Test11_InsertAfterClear (4 ms)
+[ RUN      ] BSTTest.Test11_InsertAfterRemoveRoot
+[       OK ] BSTTest.Test11_InsertAfterRemoveRoot (2 ms)
+[ RUN      ] BSTTest.Stress1_Insert1000
+[       OK ] BSTTest.Stress1_Insert1000 (22 ms)
+[ RUN      ] BSTTest.Stress2_Remove1000
+[       OK ] BSTTest.Stress2_Remove1000 (36 ms)
+[----------] 14 tests from BSTTest (152 ms total)
+
+[----------] Global test environment tear-down
+[==========] 14 tests from 1 test case ran. (173 ms total)
+[  PASSED  ] 12 tests.
+[  FAILED  ] 2 tests, listed below:
+[  FAILED  ] BSTTest.Test9_TwoChildrenRemove
+[  FAILED  ] BSTTest.Test10_TwoChildrenRemove
+
+ 2 FAILED TESTS
+valgrind --tool=memcheck --leak-check=yes ./rotate_test
+Running main() from gtest_main.cc
+[==========] Running 4 tests from 1 test case.
+[----------] Global test environment set-up.
+[----------] 4 tests from RotateTest
+[ RUN      ] RotateTest.Test1_LeftRotate
+valgrind --tool=memcheck --leak-check=yes ./bst_test
+Running main() from gtest_main.cc
+[==========] Running 14 tests from 1 test case.
+[----------] Global test environment set-up.
+[----------] 14 tests from BSTTest
+[ RUN      ] BSTTest.Test1_Construction
+[       OK ] BSTTest.Test1_Construction (5 ms)
+[ RUN      ] BSTTest.Test2_EmptyTree
+[       OK ] BSTTest.Test2_EmptyTree (3 ms)
+[ RUN      ] BSTTest.Test3_SingleInsert
+[       OK ] BSTTest.Test3_SingleInsert (5 ms)
+[ RUN      ] BSTTest.Test4_BalancedInsert
+[       OK ] BSTTest.Test4_BalancedInsert (7 ms)
+[ RUN      ] BSTTest.Test5_UnbalancedInsert
+[       OK ] BSTTest.Test5_UnbalancedInsert (6 ms)
+[ RUN      ] BSTTest.Test6_SingleRemove
+[       OK ] BSTTest.Test6_SingleRemove (3 ms)
+[ RUN      ] BSTTest.Test7_RightChildRemove
+[       OK ] BSTTest.Test7_RightChildRemove (3 ms)
+[ RUN      ] BSTTest.Test8_LeftChildRemove
+[       OK ] BSTTest.Test8_LeftChildRemove (3 ms)
+[ RUN      ] BSTTest.Test9_TwoChildrenRemove
+hw7_bst_test.cpp:152: Failure
+      Expected: 2
+To be equal to: bst.height()
+      Which is: 1
+hw7_bst_test.cpp:160: Failure
+Expected: (nullptr) != (root->getRight()), actual: 8-byte object <00-00 00-00 00-00 00-00> vs NULL
+[  FAILED  ] BSTTest.Test9_TwoChildrenRemove (41 ms)
+[ RUN      ] BSTTest.Test10_TwoChildrenRemove
+hw7_bst_test.cpp:174: Failure
+      Expected: 2
+To be equal to: bst.height()
+      Which is: 1
+hw7_bst_test.cpp:185: Failure
+Expected: (nullptr) != (root->getLeft()), actual: 8-byte object <00-00 00-00 00-00 00-00> vs NULL
+[  FAILED  ] BSTTest.Test10_TwoChildrenRemove (9 ms)
+[ RUN      ] BSTTest.Test11_InsertAfterClear
+[       OK ] BSTTest.Test11_InsertAfterClear (4 ms)
+[ RUN      ] BSTTest.Test11_InsertAfterRemoveRoot
+[       OK ] BSTTest.Test11_InsertAfterRemoveRoot (3 ms)
+[ RUN      ] BSTTest.Stress1_Insert1000
+[       OK ] BSTTest.Stress1_Insert1000 (22 ms)
+[ RUN      ] BSTTest.Stress2_Remove1000
+[       OK ] BSTTest.Stress2_Remove1000 (54 ms)
+[----------] 14 tests from BSTTest (173 ms total)
+
+[----------] Global test environment tear-down
+[==========] 14 tests from 1 test case ran. (193 ms total)
+[  PASSED  ] 12 tests.
+[  FAILED  ] 2 tests, listed below:
+[  FAILED  ] BSTTest.Test9_TwoChildrenRemove
+[  FAILED  ] BSTTest.Test10_TwoChildrenRemove
+
+ 2 FAILED TESTS
+valgrind --tool=memcheck --leak-check=yes ./rotate_test
+Running main() from gtest_main.cc
+[==========] Running 4 tests from 1 test case.
+[----------] Global test environment set-up.
+[----------] 4 tests from RotateTest
+[ RUN      ] RotateTest.Test1_LeftRotate
+g++ -g -Wall -std=c++11  hw7_bst_test.cpp -I /usr/include/gtest/ -l gtest -l gtest_main -pthread -o bst_test
+g++ -g -Wall -std=c++11  hw7_rotate_test.cpp -I /usr/include/gtest/ -l gtest -l gtest_main -pthread -o rotate_test
+valgrind --tool=memcheck --leak-check=yes ./bst_test
+Running main() from gtest_main.cc
+[==========] Running 14 tests from 1 test case.
+[----------] Global test environment set-up.
+[----------] 14 tests from BSTTest
+[ RUN      ] BSTTest.Test1_Construction
+[       OK ] BSTTest.Test1_Construction (4 ms)
+[ RUN      ] BSTTest.Test2_EmptyTree
+[       OK ] BSTTest.Test2_EmptyTree (3 ms)
+[ RUN      ] BSTTest.Test3_SingleInsert
+[       OK ] BSTTest.Test3_SingleInsert (5 ms)
+[ RUN      ] BSTTest.Test4_BalancedInsert
+[       OK ] BSTTest.Test4_BalancedInsert (7 ms)
+[ RUN      ] BSTTest.Test5_UnbalancedInsert
+[       OK ] BSTTest.Test5_UnbalancedInsert (4 ms)
+[ RUN      ] BSTTest.Test6_SingleRemove
+[       OK ] BSTTest.Test6_SingleRemove (3 ms)
+[ RUN      ] BSTTest.Test7_RightChildRemove
+[       OK ] BSTTest.Test7_RightChildRemove (3 ms)
+[ RUN      ] BSTTest.Test8_LeftChildRemove
+[       OK ] BSTTest.Test8_LeftChildRemove (2 ms)
+[ RUN      ] BSTTest.Test9_TwoChildrenRemove
+hw7_bst_test.cpp:152: Failure
+      Expected: 2
+To be equal to: bst.height()
+      Which is: 1
+hw7_bst_test.cpp:160: Failure
+Expected: (nullptr) != (root->getRight()), actual: 8-byte object <00-00 00-00 00-00 00-00> vs NULL
+[  FAILED  ] BSTTest.Test9_TwoChildrenRemove (38 ms)
+[ RUN      ] BSTTest.Test10_TwoChildrenRemove
+hw7_bst_test.cpp:174: Failure
+      Expected: 2
+To be equal to: bst.height()
+      Which is: 1
+hw7_bst_test.cpp:182: Failure
+Expected: (nullptr) != (root->getRight()), actual: 8-byte object <00-00 00-00 00-00 00-00> vs NULL
+[  FAILED  ] BSTTest.Test10_TwoChildrenRemove (5 ms)
+[ RUN      ] BSTTest.Test11_InsertAfterClear
+[       OK ] BSTTest.Test11_InsertAfterClear (4 ms)
+[ RUN      ] BSTTest.Test11_InsertAfterRemoveRoot
+[       OK ] BSTTest.Test11_InsertAfterRemoveRoot (2 ms)
+[ RUN      ] BSTTest.Stress1_Insert1000
+[       OK ] BSTTest.Stress1_Insert1000 (21 ms)
+[ RUN      ] BSTTest.Stress2_Remove1000
+[       OK ] BSTTest.Stress2_Remove1000 (33 ms)
+[----------] 14 tests from BSTTest (142 ms total)
+
+[----------] Global test environment tear-down
+[==========] 14 tests from 1 test case ran. (162 ms total)
+[  PASSED  ] 12 tests.
+[  FAILED  ] 2 tests, listed below:
+[  FAILED  ] BSTTest.Test9_TwoChildrenRemove
+[  FAILED  ] BSTTest.Test10_TwoChildrenRemove
+
+ 2 FAILED TESTS
+valgrind --tool=memcheck --leak-check=yes ./rotate_test
+Running main() from gtest_main.cc
+[==========] Running 4 tests from 1 test case.
+[----------] Global test environment set-up.
+[----------] 4 tests from RotateTest
+[ RUN      ] RotateTest.Test1_LeftRotate
+g++ -g -Wall -std=c++11  hw7_bst_test.cpp -I /usr/include/gtest/ -l gtest -l gtest_main -pthread -o bst_test
+g++ -g -Wall -std=c++11  hw7_rotate_test.cpp -I /usr/include/gtest/ -l gtest -l gtest_main -pthread -o rotate_test
+valgrind --tool=memcheck --leak-check=yes ./bst_test
+Running main() from gtest_main.cc
+[==========] Running 14 tests from 1 test case.
+[----------] Global test environment set-up.
+[----------] 14 tests from BSTTest
+[ RUN      ] BSTTest.Test1_Construction
+[       OK ] BSTTest.Test1_Construction (5 ms)
+[ RUN      ] BSTTest.Test2_EmptyTree
+[       OK ] BSTTest.Test2_EmptyTree (3 ms)
+[ RUN      ] BSTTest.Test3_SingleInsert
+[       OK ] BSTTest.Test3_SingleInsert (5 ms)
+[ RUN      ] BSTTest.Test4_BalancedInsert
+[       OK ] BSTTest.Test4_BalancedInsert (7 ms)
+[ RUN      ] BSTTest.Test5_UnbalancedInsert
+[       OK ] BSTTest.Test5_UnbalancedInsert (5 ms)
+[ RUN      ] BSTTest.Test6_SingleRemove
+[       OK ] BSTTest.Test6_SingleRemove (2 ms)
+[ RUN      ] BSTTest.Test7_RightChildRemove
+[       OK ] BSTTest.Test7_RightChildRemove (3 ms)
+[ RUN      ] BSTTest.Test8_LeftChildRemove
+[       OK ] BSTTest.Test8_LeftChildRemove (3 ms)
+[ RUN      ] BSTTest.Test9_TwoChildrenRemove
+hw7_bst_test.cpp:152: Failure
+      Expected: 2
+To be equal to: bst.height()
+      Which is: 1
+valgrind --tool=memcheck --leak-check=yes ./rotate_test
+Running main() from gtest_main.cc
+[==========] Running 4 tests from 1 test case.
+[----------] Global test environment set-up.
+[----------] 4 tests from RotateTest
+[ RUN      ] RotateTest.Test1_LeftRotate
+g++ -g -Wall -std=c++11  hw7_bst_test.cpp -I /usr/include/gtest/ -l gtest -l gtest_main -pthread -o bst_test
+g++ -g -Wall -std=c++11  hw7_rotate_test.cpp -I /usr/include/gtest/ -l gtest -l gtest_main -pthread -o rotate_test
+valgrind --tool=memcheck --leak-check=yes ./bst_test
+Running main() from gtest_main.cc
+[==========] Running 14 tests from 1 test case.
+[----------] Global test environment set-up.
+[----------] 14 tests from BSTTest
+[ RUN      ] BSTTest.Test1_Construction
+[       OK ] BSTTest.Test1_Construction (5 ms)
+[ RUN      ] BSTTest.Test2_EmptyTree
+[       OK ] BSTTest.Test2_EmptyTree (3 ms)
+[ RUN      ] BSTTest.Test3_SingleInsert
+[       OK ] BSTTest.Test3_SingleInsert (5 ms)
+[ RUN      ] BSTTest.Test4_BalancedInsert
+[       OK ] BSTTest.Test4_BalancedInsert (7 ms)
+[ RUN      ] BSTTest.Test5_UnbalancedInsert
+[       OK ] BSTTest.Test5_UnbalancedInsert (5 ms)
+[ RUN      ] BSTTest.Test6_SingleRemove
+[       OK ] BSTTest.Test6_SingleRemove (3 ms)
+[ RUN      ] BSTTest.Test7_RightChildRemove
+[       OK ] BSTTest.Test7_RightChildRemove (3 ms)
+[ RUN      ] BSTTest.Test8_LeftChildRemove
+[       OK ] BSTTest.Test8_LeftChildRemove (2 ms)
+[ RUN      ] BSTTest.Test9_TwoChildrenRemove
+hw7_bst_test.cpp:152: Failure
+      Expected: 2
+To be equal to: bst.height()
+      Which is: 1
+valgrind --tool=memcheck --leak-check=yes ./rotate_test
+Running main() from gtest_main.cc
+[==========] Running 4 tests from 1 test case.
+[----------] Global test environment set-up.
+[----------] 4 tests from RotateTest
+[ RUN      ] RotateTest.Test1_LeftRotate
+g++ -g -Wall -std=c++11  hw7_bst_test.cpp -I /usr/include/gtest/ -l gtest -l gtest_main -pthread -o bst_test
+g++ -g -Wall -std=c++11  hw7_rotate_test.cpp -I /usr/include/gtest/ -l gtest -l gtest_main -pthread -o rotate_test
+valgrind --tool=memcheck --leak-check=yes ./bst_test
+Running main() from gtest_main.cc
+[==========] Running 14 tests from 1 test case.
+[----------] Global test environment set-up.
+[----------] 14 tests from BSTTest
+[ RUN      ] BSTTest.Test1_Construction
+[       OK ] BSTTest.Test1_Construction (5 ms)
+[ RUN      ] BSTTest.Test2_EmptyTree
+[       OK ] BSTTest.Test2_EmptyTree (3 ms)
+[ RUN      ] BSTTest.Test3_SingleInsert
+[       OK ] BSTTest.Test3_SingleInsert (4 ms)
+[ RUN      ] BSTTest.Test4_BalancedInsert
+[       OK ] BSTTest.Test4_BalancedInsert (8 ms)
+[ RUN      ] BSTTest.Test5_UnbalancedInsert
+[       OK ] BSTTest.Test5_UnbalancedInsert (4 ms)
+[ RUN      ] BSTTest.Test6_SingleRemove
+[       OK ] BSTTest.Test6_SingleRemove (2 ms)
+[ RUN      ] BSTTest.Test7_RightChildRemove
+[       OK ] BSTTest.Test7_RightChildRemove (3 ms)
+[ RUN      ] BSTTest.Test8_LeftChildRemove
+[       OK ] BSTTest.Test8_LeftChildRemove (3 ms)
+[ RUN      ] BSTTest.Test9_TwoChildrenRemove
+hw7_bst_test.cpp:158: Failure
+      Expected: 1
+To be equal to: root->getKey()
+      Which is: 2
+[  FAILED  ] BSTTest.Test9_TwoChildrenRemove (45 ms)
+[ RUN      ] BSTTest.Test10_TwoChildrenRemove
+hw7_bst_test.cpp:180: Failure
+      Expected: 4
+To be equal to: root->getKey()
+      Which is: 5
+[  FAILED  ] BSTTest.Test10_TwoChildrenRemove (13 ms)
+[ RUN      ] BSTTest.Test11_InsertAfterClear
+[       OK ] BSTTest.Test11_InsertAfterClear (4 ms)
+[ RUN      ] BSTTest.Test11_InsertAfterRemoveRoot
+[       OK ] BSTTest.Test11_InsertAfterRemoveRoot (2 ms)
+[ RUN      ] BSTTest.Stress1_Insert1000
+[       OK ] BSTTest.Stress1_Insert1000 (22 ms)
+[ RUN      ] BSTTest.Stress2_Remove1000
+g++ -g -Wall -std=c++11  hw7_bst_test.cpp -I /usr/include/gtest/ -l gtest -l gtest_main -pthread -o bst_test
+g++ -g -Wall -std=c++11  hw7_rotate_test.cpp -I /usr/include/gtest/ -l gtest -l gtest_main -pthread -o rotate_test
+valgrind --tool=memcheck --leak-check=yes ./bst_test
+Running main() from gtest_main.cc
+[==========] Running 14 tests from 1 test case.
+[----------] Global test environment set-up.
+[----------] 14 tests from BSTTest
+[ RUN      ] BSTTest.Test1_Construction
+[       OK ] BSTTest.Test1_Construction (5 ms)
+[ RUN      ] BSTTest.Test2_EmptyTree
+[       OK ] BSTTest.Test2_EmptyTree (3 ms)
+[ RUN      ] BSTTest.Test3_SingleInsert
+[       OK ] BSTTest.Test3_SingleInsert (5 ms)
+[ RUN      ] BSTTest.Test4_BalancedInsert
+[       OK ] BSTTest.Test4_BalancedInsert (7 ms)
+[ RUN      ] BSTTest.Test5_UnbalancedInsert
+[       OK ] BSTTest.Test5_UnbalancedInsert (5 ms)
+[ RUN      ] BSTTest.Test6_SingleRemove
+[       OK ] BSTTest.Test6_SingleRemove (2 ms)
+[ RUN      ] BSTTest.Test7_RightChildRemove
+[       OK ] BSTTest.Test7_RightChildRemove (3 ms)
+[ RUN      ] BSTTest.Test8_LeftChildRemove
+[       OK ] BSTTest.Test8_LeftChildRemove (3 ms)
+[ RUN      ] BSTTest.Test9_TwoChildrenRemove
+hw7_bst_test.cpp:152: Failure
+      Expected: 2
+To be equal to: bst.height()
+      Which is: 1
+[  FAILED  ] BSTTest.Test9_TwoChildrenRemove (25 ms)
+[ RUN      ] BSTTest.Test10_TwoChildrenRemove
+hw7_bst_test.cpp:174: Failure
+      Expected: 2
+To be equal to: bst.height()
+      Which is: 1
+[  FAILED  ] BSTTest.Test10_TwoChildrenRemove (8 ms)
+[ RUN      ] BSTTest.Test11_InsertAfterClear
+[       OK ] BSTTest.Test11_InsertAfterClear (4 ms)
+[ RUN      ] BSTTest.Test11_InsertAfterRemoveRoot
+[       OK ] BSTTest.Test11_InsertAfterRemoveRoot (2 ms)
+[ RUN      ] BSTTest.Stress1_Insert1000
+[       OK ] BSTTest.Stress1_Insert1000 (20 ms)
+[ RUN      ] BSTTest.Stress2_Remove1000
+valgrind --tool=memcheck --leak-check=yes ./bst_test
+Running main() from gtest_main.cc
+[==========] Running 14 tests from 1 test case.
+[----------] Global test environment set-up.
+[----------] 14 tests from BSTTest
+[ RUN      ] BSTTest.Test1_Construction
+[       OK ] BSTTest.Test1_Construction (4 ms)
+[ RUN      ] BSTTest.Test2_EmptyTree
+[       OK ] BSTTest.Test2_EmptyTree (3 ms)
+[ RUN      ] BSTTest.Test3_SingleInsert
+[       OK ] BSTTest.Test3_SingleInsert (4 ms)
+[ RUN      ] BSTTest.Test4_BalancedInsert
+[       OK ] BSTTest.Test4_BalancedInsert (8 ms)
+[ RUN      ] BSTTest.Test5_UnbalancedInsert
+[       OK ] BSTTest.Test5_UnbalancedInsert (4 ms)
+[ RUN      ] BSTTest.Test6_SingleRemove
+[       OK ] BSTTest.Test6_SingleRemove (3 ms)
+[ RUN      ] BSTTest.Test7_RightChildRemove
+[       OK ] BSTTest.Test7_RightChildRemove (3 ms)
+[ RUN      ] BSTTest.Test8_LeftChildRemove
+[       OK ] BSTTest.Test8_LeftChildRemove (3 ms)
+[ RUN      ] BSTTest.Test9_TwoChildrenRemove
+hw7_bst_test.cpp:152: Failure
+      Expected: 2
+To be equal to: bst.height()
+      Which is: 1
+[  FAILED  ] BSTTest.Test9_TwoChildrenRemove (26 ms)
+[ RUN      ] BSTTest.Test10_TwoChildrenRemove
+hw7_bst_test.cpp:174: Failure
+      Expected: 2
+To be equal to: bst.height()
+      Which is: 1
+[  FAILED  ] BSTTest.Test10_TwoChildrenRemove (8 ms)
+[ RUN      ] BSTTest.Test11_InsertAfterClear
+[       OK ] BSTTest.Test11_InsertAfterClear (4 ms)
+[ RUN      ] BSTTest.Test11_InsertAfterRemoveRoot
+[       OK ] BSTTest.Test11_InsertAfterRemoveRoot (3 ms)
+[ RUN      ] BSTTest.Stress1_Insert1000
+[       OK ] BSTTest.Stress1_Insert1000 (21 ms)
+[ RUN      ] BSTTest.Stress2_Remove1000
+g++ -g -Wall -std=c++11  hw7_bst_test.cpp -I /usr/include/gtest/ -l gtest -l gtest_main -pthread -o bst_test
+g++ -g -Wall -std=c++11  hw7_rotate_test.cpp -I /usr/include/gtest/ -l gtest -l gtest_main -pthread -o rotate_test
+valgrind --tool=memcheck --leak-check=yes ./bst_test
+Running main() from gtest_main.cc
+[==========] Running 14 tests from 1 test case.
+[----------] Global test environment set-up.
+[----------] 14 tests from BSTTest
+[ RUN      ] BSTTest.Test1_Construction
+[       OK ] BSTTest.Test1_Construction (5 ms)
+[ RUN      ] BSTTest.Test2_EmptyTree
+[       OK ] BSTTest.Test2_EmptyTree (2 ms)
+[ RUN      ] BSTTest.Test3_SingleInsert
+[       OK ] BSTTest.Test3_SingleInsert (4 ms)
+[ RUN      ] BSTTest.Test4_BalancedInsert
+[       OK ] BSTTest.Test4_BalancedInsert (8 ms)
+[ RUN      ] BSTTest.Test5_UnbalancedInsert
+[       OK ] BSTTest.Test5_UnbalancedInsert (5 ms)
+[ RUN      ] BSTTest.Test6_SingleRemove
+[       OK ] BSTTest.Test6_SingleRemove (2 ms)
+[ RUN      ] BSTTest.Test7_RightChildRemove
+[       OK ] BSTTest.Test7_RightChildRemove (3 ms)
+[ RUN      ] BSTTest.Test8_LeftChildRemove
+[       OK ] BSTTest.Test8_LeftChildRemove (3 ms)
+[ RUN      ] BSTTest.Test9_TwoChildrenRemove
+hw7_bst_test.cpp:152: Failure
+      Expected: 2
+To be equal to: bst.height()
+      Which is: 1
+valgrind --tool=memcheck --leak-check=yes ./rotate_test
+Running main() from gtest_main.cc
+[==========] Running 4 tests from 1 test case.
+[----------] Global test environment set-up.
+[----------] 4 tests from RotateTest
+[ RUN      ] RotateTest.Test1_LeftRotate
+g++ -g -Wall -std=c++11  hw7_bst_test.cpp -I /usr/include/gtest/ -l gtest -l gtest_main -pthread -o bst_test
+g++ -g -Wall -std=c++11  hw7_rotate_test.cpp -I /usr/include/gtest/ -l gtest -l gtest_main -pthread -o rotate_test
+valgrind --tool=memcheck --leak-check=yes ./bst_test
+Running main() from gtest_main.cc
+[==========] Running 14 tests from 1 test case.
+[----------] Global test environment set-up.
+[----------] 14 tests from BSTTest
+[ RUN      ] BSTTest.Test1_Construction
+[       OK ] BSTTest.Test1_Construction (5 ms)
+[ RUN      ] BSTTest.Test2_EmptyTree
+[       OK ] BSTTest.Test2_EmptyTree (2 ms)
+[ RUN      ] BSTTest.Test3_SingleInsert
+[       OK ] BSTTest.Test3_SingleInsert (5 ms)
+[ RUN      ] BSTTest.Test4_BalancedInsert
+[       OK ] BSTTest.Test4_BalancedInsert (8 ms)
+[ RUN      ] BSTTest.Test5_UnbalancedInsert
+[       OK ] BSTTest.Test5_UnbalancedInsert (5 ms)
+[ RUN      ] BSTTest.Test6_SingleRemove
+[       OK ] BSTTest.Test6_SingleRemove (2 ms)
+[ RUN      ] BSTTest.Test7_RightChildRemove
+[       OK ] BSTTest.Test7_RightChildRemove (3 ms)
+[ RUN      ] BSTTest.Test8_LeftChildRemove
+[       OK ] BSTTest.Test8_LeftChildRemove (3 ms)
+[ RUN      ] BSTTest.Test9_TwoChildrenRemove
+g++ -g -Wall -std=c++11  hw7_bst_test.cpp -I /usr/include/gtest/ -l gtest -l gtest_main -pthread -o bst_test
+g++ -g -Wall -std=c++11  hw7_rotate_test.cpp -I /usr/include/gtest/ -l gtest -l gtest_main -pthread -o rotate_test
+valgrind --tool=memcheck --leak-check=yes ./bst_test
+Running main() from gtest_main.cc
+[==========] Running 14 tests from 1 test case.
+[----------] Global test environment set-up.
+[----------] 14 tests from BSTTest
+[ RUN      ] BSTTest.Test1_Construction
+[       OK ] BSTTest.Test1_Construction (4 ms)
+[ RUN      ] BSTTest.Test2_EmptyTree
+[       OK ] BSTTest.Test2_EmptyTree (2 ms)
+[ RUN      ] BSTTest.Test3_SingleInsert
+[       OK ] BSTTest.Test3_SingleInsert (5 ms)
+[ RUN      ] BSTTest.Test4_BalancedInsert
+[       OK ] BSTTest.Test4_BalancedInsert (7 ms)
+[ RUN      ] BSTTest.Test5_UnbalancedInsert
+[       OK ] BSTTest.Test5_UnbalancedInsert (5 ms)
+[ RUN      ] BSTTest.Test6_SingleRemove
+[       OK ] BSTTest.Test6_SingleRemove (2 ms)
+[ RUN      ] BSTTest.Test7_RightChildRemove
+[       OK ] BSTTest.Test7_RightChildRemove (3 ms)
+[ RUN      ] BSTTest.Test8_LeftChildRemove
+[       OK ] BSTTest.Test8_LeftChildRemove (2 ms)
+[ RUN      ] BSTTest.Test9_TwoChildrenRemove
+hw7_bst_test.cpp:152: Failure
+      Expected: 2
+To be equal to: bst.height()
+      Which is: 1
+valgrind --tool=memcheck --leak-check=yes ./rotate_test
+Running main() from gtest_main.cc
+[==========] Running 4 tests from 1 test case.
+[----------] Global test environment set-up.
+[----------] 4 tests from RotateTest
+[ RUN      ] RotateTest.Test1_LeftRotate
+g++ -g -Wall -std=c++11  hw7_bst_test.cpp -I /usr/include/gtest/ -l gtest -l gtest_main -pthread -o bst_test
+g++ -g -Wall -std=c++11  hw7_rotate_test.cpp -I /usr/include/gtest/ -l gtest -l gtest_main -pthread -o rotate_test
+valgrind --tool=memcheck --leak-check=yes ./bst_test
+Running main() from gtest_main.cc
+[==========] Running 14 tests from 1 test case.
+[----------] Global test environment set-up.
+[----------] 14 tests from BSTTest
+[ RUN      ] BSTTest.Test1_Construction
+[       OK ] BSTTest.Test1_Construction (5 ms)
+[ RUN      ] BSTTest.Test2_EmptyTree
+[       OK ] BSTTest.Test2_EmptyTree (3 ms)
+[ RUN      ] BSTTest.Test3_SingleInsert
+[       OK ] BSTTest.Test3_SingleInsert (4 ms)
+[ RUN      ] BSTTest.Test4_BalancedInsert
+[       OK ] BSTTest.Test4_BalancedInsert (8 ms)
+[ RUN      ] BSTTest.Test5_UnbalancedInsert
+[       OK ] BSTTest.Test5_UnbalancedInsert (4 ms)
+[ RUN      ] BSTTest.Test6_SingleRemove
+[       OK ] BSTTest.Test6_SingleRemove (3 ms)
+[ RUN      ] BSTTest.Test7_RightChildRemove
+[       OK ] BSTTest.Test7_RightChildRemove (2 ms)
+[ RUN      ] BSTTest.Test8_LeftChildRemove
+[       OK ] BSTTest.Test8_LeftChildRemove (2 ms)
+[ RUN      ] BSTTest.Test9_TwoChildrenRemove
+hw7_bst_test.cpp:152: Failure
+      Expected: 2
+To be equal to: bst.height()
+      Which is: 1
+valgrind --tool=memcheck --leak-check=yes ./rotate_test
+Running main() from gtest_main.cc
+[==========] Running 4 tests from 1 test case.
+[----------] Global test environment set-up.
+[----------] 4 tests from RotateTest
+[ RUN      ] RotateTest.Test1_LeftRotate
+g++ -g -Wall -std=c++11  hw7_bst_test.cpp -I /usr/include/gtest/ -l gtest -l gtest_main -pthread -o bst_test
+g++ -g -Wall -std=c++11  hw7_rotate_test.cpp -I /usr/include/gtest/ -l gtest -l gtest_main -pthread -o rotate_test
+valgrind --tool=memcheck --leak-check=yes ./bst_test
+Running main() from gtest_main.cc
+[==========] Running 14 tests from 1 test case.
+[----------] Global test environment set-up.
+[----------] 14 tests from BSTTest
+[ RUN      ] BSTTest.Test1_Construction
+[       OK ] BSTTest.Test1_Construction (5 ms)
+[ RUN      ] BSTTest.Test2_EmptyTree
+[       OK ] BSTTest.Test2_EmptyTree (3 ms)
+[ RUN      ] BSTTest.Test3_SingleInsert
+[       OK ] BSTTest.Test3_SingleInsert (5 ms)
+[ RUN      ] BSTTest.Test4_BalancedInsert
+[       OK ] BSTTest.Test4_BalancedInsert (7 ms)
+[ RUN      ] BSTTest.Test5_UnbalancedInsert
+[       OK ] BSTTest.Test5_UnbalancedInsert (5 ms)
+[ RUN      ] BSTTest.Test6_SingleRemove
+[       OK ] BSTTest.Test6_SingleRemove (2 ms)
+[ RUN      ] BSTTest.Test7_RightChildRemove
+[       OK ] BSTTest.Test7_RightChildRemove (3 ms)
+[ RUN      ] BSTTest.Test8_LeftChildRemove
+[       OK ] BSTTest.Test8_LeftChildRemove (3 ms)
+[ RUN      ] BSTTest.Test9_TwoChildrenRemove
+hw7_bst_test.cpp:152: Failure
+      Expected: 2
+To be equal to: bst.height()
+      Which is: 1
+valgrind --tool=memcheck --leak-check=yes ./rotate_test
+Running main() from gtest_main.cc
+[==========] Running 4 tests from 1 test case.
+[----------] Global test environment set-up.
+[----------] 4 tests from RotateTest
+[ RUN      ] RotateTest.Test1_LeftRotate
+g++ -g -Wall -std=c++11  hw7_bst_test.cpp -I /usr/include/gtest/ -l gtest -l gtest_main -pthread -o bst_test
+g++ -g -Wall -std=c++11  hw7_rotate_test.cpp -I /usr/include/gtest/ -l gtest -l gtest_main -pthread -o rotate_test
+valgrind --tool=memcheck --leak-check=yes ./bst_test
+Running main() from gtest_main.cc
+[==========] Running 14 tests from 1 test case.
+[----------] Global test environment set-up.
+[----------] 14 tests from BSTTest
+[ RUN      ] BSTTest.Test1_Construction
+[       OK ] BSTTest.Test1_Construction (5 ms)
+[ RUN      ] BSTTest.Test2_EmptyTree
+[       OK ] BSTTest.Test2_EmptyTree (2 ms)
+[ RUN      ] BSTTest.Test3_SingleInsert
+[       OK ] BSTTest.Test3_SingleInsert (5 ms)
+[ RUN      ] BSTTest.Test4_BalancedInsert
+[       OK ] BSTTest.Test4_BalancedInsert (7 ms)
+[ RUN      ] BSTTest.Test5_UnbalancedInsert
+[       OK ] BSTTest.Test5_UnbalancedInsert (4 ms)
+[ RUN      ] BSTTest.Test6_SingleRemove
+[       OK ] BSTTest.Test6_SingleRemove (3 ms)
+[ RUN      ] BSTTest.Test7_RightChildRemove
+[       OK ] BSTTest.Test7_RightChildRemove (2 ms)
+[ RUN      ] BSTTest.Test8_LeftChildRemove
+[       OK ] BSTTest.Test8_LeftChildRemove (2 ms)
+[ RUN      ] BSTTest.Test9_TwoChildrenRemove
+hw7_bst_test.cpp:152: Failure
+      Expected: 2
+To be equal to: bst.height()
+      Which is: 1
+valgrind --tool=memcheck --leak-check=yes ./rotate_test
+Running main() from gtest_main.cc
+[==========] Running 4 tests from 1 test case.
+[----------] Global test environment set-up.
+[----------] 4 tests from RotateTest
+[ RUN      ] RotateTest.Test1_LeftRotate
+g++ -g -Wall -std=c++11  hw7_bst_test.cpp -I /usr/include/gtest/ -l gtest -l gtest_main -pthread -o bst_test
+g++ -g -Wall -std=c++11  hw7_rotate_test.cpp -I /usr/include/gtest/ -l gtest -l gtest_main -pthread -o rotate_test
+valgrind --tool=memcheck --leak-check=yes ./bst_test
+Running main() from gtest_main.cc
+[==========] Running 14 tests from 1 test case.
+[----------] Global test environment set-up.
+[----------] 14 tests from BSTTest
+[ RUN      ] BSTTest.Test1_Construction
+[       OK ] BSTTest.Test1_Construction (5 ms)
+[ RUN      ] BSTTest.Test2_EmptyTree
+[       OK ] BSTTest.Test2_EmptyTree (2 ms)
+[ RUN      ] BSTTest.Test3_SingleInsert
+[       OK ] BSTTest.Test3_SingleInsert (4 ms)
+[ RUN      ] BSTTest.Test4_BalancedInsert
+[       OK ] BSTTest.Test4_BalancedInsert (8 ms)
+[ RUN      ] BSTTest.Test5_UnbalancedInsert
+[       OK ] BSTTest.Test5_UnbalancedInsert (4 ms)
+[ RUN      ] BSTTest.Test6_SingleRemove
+[       OK ] BSTTest.Test6_SingleRemove (3 ms)
+[ RUN      ] BSTTest.Test7_RightChildRemove
+[       OK ] BSTTest.Test7_RightChildRemove (3 ms)
+[ RUN      ] BSTTest.Test8_LeftChildRemove
+[       OK ] BSTTest.Test8_LeftChildRemove (2 ms)
+[ RUN      ] BSTTest.Test9_TwoChildrenRemove
+hw7_bst_test.cpp:152: Failure
+      Expected: 2
+To be equal to: bst.height()
+      Which is: 1
+[  FAILED  ] BSTTest.Test9_TwoChildrenRemove (25 ms)
+[ RUN      ] BSTTest.Test10_TwoChildrenRemove
+hw7_bst_test.cpp:174: Failure
+      Expected: 2
+To be equal to: bst.height()
+      Which is: 1
+hw7_bst_test.cpp:185: Failure
+Expected: (nullptr) != (root->getLeft()), actual: 8-byte object <00-00 00-00 00-00 00-00> vs NULL
+[  FAILED  ] BSTTest.Test10_TwoChildrenRemove (22 ms)
+[ RUN      ] BSTTest.Test11_InsertAfterClear
+[       OK ] BSTTest.Test11_InsertAfterClear (4 ms)
+[ RUN      ] BSTTest.Test11_InsertAfterRemoveRoot
+[       OK ] BSTTest.Test11_InsertAfterRemoveRoot (3 ms)
+[ RUN      ] BSTTest.Stress1_Insert1000
+[       OK ] BSTTest.Stress1_Insert1000 (21 ms)
+[ RUN      ] BSTTest.Stress2_Remove1000
+[       OK ] BSTTest.Stress2_Remove1000 (68 ms)
+[----------] 14 tests from BSTTest (181 ms total)
+
+[----------] Global test environment tear-down
+[==========] 14 tests from 1 test case ran. (200 ms total)
+[  PASSED  ] 12 tests.
+[  FAILED  ] 2 tests, listed below:
+[  FAILED  ] BSTTest.Test9_TwoChildrenRemove
+[  FAILED  ] BSTTest.Test10_TwoChildrenRemove
+
+ 2 FAILED TESTS
+valgrind --tool=memcheck --leak-check=yes ./rotate_test
+Running main() from gtest_main.cc
+[==========] Running 4 tests from 1 test case.
+[----------] Global test environment set-up.
+[----------] 4 tests from RotateTest
+[ RUN      ] RotateTest.Test1_LeftRotate
+g++ -g -Wall -std=c++11  hw7_bst_test.cpp -I /usr/include/gtest/ -l gtest -l gtest_main -pthread -o bst_test
+g++ -g -Wall -std=c++11  hw7_bst_test.cpp -I /usr/include/gtest/ -l gtest -l gtest_main -pthread -o bst_test
+g++ -g -Wall -std=c++11  hw7_rotate_test.cpp -I /usr/include/gtest/ -l gtest -l gtest_main -pthread -o rotate_test
+valgrind --tool=memcheck --leak-check=yes ./bst_test
+Running main() from gtest_main.cc
+[==========] Running 14 tests from 1 test case.
+[----------] Global test environment set-up.
+[----------] 14 tests from BSTTest
+[ RUN      ] BSTTest.Test1_Construction
+[       OK ] BSTTest.Test1_Construction (4 ms)
+[ RUN      ] BSTTest.Test2_EmptyTree
+[       OK ] BSTTest.Test2_EmptyTree (3 ms)
+[ RUN      ] BSTTest.Test3_SingleInsert
+[       OK ] BSTTest.Test3_SingleInsert (5 ms)
+[ RUN      ] BSTTest.Test4_BalancedInsert
+[       OK ] BSTTest.Test4_BalancedInsert (7 ms)
+[ RUN      ] BSTTest.Test5_UnbalancedInsert
+[       OK ] BSTTest.Test5_UnbalancedInsert (4 ms)
+[ RUN      ] BSTTest.Test6_SingleRemove
+[       OK ] BSTTest.Test6_SingleRemove (2 ms)
+[ RUN      ] BSTTest.Test7_RightChildRemove
+[       OK ] BSTTest.Test7_RightChildRemove (3 ms)
+[ RUN      ] BSTTest.Test8_LeftChildRemove
+[       OK ] BSTTest.Test8_LeftChildRemove (3 ms)
+[ RUN      ] BSTTest.Test9_TwoChildrenRemove
+hw7_bst_test.cpp:158: Failure
+      Expected: 1
+To be equal to: root->getKey()
+      Which is: 2
+hw7_bst_test.cpp:160: Failure
+Expected: (nullptr) != (root->getRight()), actual: 8-byte object <00-00 00-00 00-00 00-00> vs NULL
+[  FAILED  ] BSTTest.Test9_TwoChildrenRemove (57 ms)
+[ RUN      ] BSTTest.Test10_TwoChildrenRemove
+hw7_bst_test.cpp:174: Failure
+      Expected: 2
+To be equal to: bst.height()
+      Which is: 3
+hw7_bst_test.cpp:180: Failure
+      Expected: 4
+To be equal to: root->getKey()
+      Which is: 5
+[  FAILED  ] BSTTest.Test10_TwoChildrenRemove (10 ms)
+[ RUN      ] BSTTest.Test11_InsertAfterClear
+[       OK ] BSTTest.Test11_InsertAfterClear (4 ms)
+[ RUN      ] BSTTest.Test11_InsertAfterRemoveRoot
+[       OK ] BSTTest.Test11_InsertAfterRemoveRoot (2 ms)
+[ RUN      ] BSTTest.Stress1_Insert1000
+[       OK ] BSTTest.Stress1_Insert1000 (20 ms)
+[ RUN      ] BSTTest.Stress2_Remove1000
+[       OK ] BSTTest.Stress2_Remove1000 (53 ms)
+[----------] 14 tests from BSTTest (187 ms total)
+
+[----------] Global test environment tear-down
+[==========] 14 tests from 1 test case ran. (206 ms total)
+[  PASSED  ] 12 tests.
+[  FAILED  ] 2 tests, listed below:
+[  FAILED  ] BSTTest.Test9_TwoChildrenRemove
+[  FAILED  ] BSTTest.Test10_TwoChildrenRemove
+
+ 2 FAILED TESTS
+valgrind --tool=memcheck --leak-check=yes ./rotate_test
+Running main() from gtest_main.cc
+[==========] Running 4 tests from 1 test case.
+[----------] Global test environment set-up.
+[----------] 4 tests from RotateTest
+[ RUN      ] RotateTest.Test1_LeftRotate
+g++ -g -Wall -std=c++11  hw7_bst_test.cpp -I /usr/include/gtest/ -l gtest -l gtest_main -pthread -o bst_test
+g++ -g -Wall -std=c++11  hw7_bst_test.cpp -I /usr/include/gtest/ -l gtest -l gtest_main -pthread -o bst_test
+g++ -g -Wall -std=c++11  hw7_rotate_test.cpp -I /usr/include/gtest/ -l gtest -l gtest_main -pthread -o rotate_test
+valgrind --tool=memcheck --leak-check=yes ./bst_test
+Running main() from gtest_main.cc
+[==========] Running 14 tests from 1 test case.
+[----------] Global test environment set-up.
+[----------] 14 tests from BSTTest
+[ RUN      ] BSTTest.Test1_Construction
+[       OK ] BSTTest.Test1_Construction (4 ms)
+[ RUN      ] BSTTest.Test2_EmptyTree
+[       OK ] BSTTest.Test2_EmptyTree (3 ms)
+[ RUN      ] BSTTest.Test3_SingleInsert
+[       OK ] BSTTest.Test3_SingleInsert (5 ms)
+[ RUN      ] BSTTest.Test4_BalancedInsert
+[       OK ] BSTTest.Test4_BalancedInsert (7 ms)
+[ RUN      ] BSTTest.Test5_UnbalancedInsert
+[       OK ] BSTTest.Test5_UnbalancedInsert (5 ms)
+[ RUN      ] BSTTest.Test6_SingleRemove
+[       OK ] BSTTest.Test6_SingleRemove (2 ms)
+[ RUN      ] BSTTest.Test7_RightChildRemove
+[       OK ] BSTTest.Test7_RightChildRemove (3 ms)
+[ RUN      ] BSTTest.Test8_LeftChildRemove
+[       OK ] BSTTest.Test8_LeftChildRemove (3 ms)
+[ RUN      ] BSTTest.Test9_TwoChildrenRemove
+hw7_bst_test.cpp:160: Failure
+Expected: (nullptr) != (root->getRight()), actual: 8-byte object <00-00 00-00 00-00 00-00> vs NULL
+[  FAILED  ] BSTTest.Test9_TwoChildrenRemove (35 ms)
+[ RUN      ] BSTTest.Test10_TwoChildrenRemove
+hw7_bst_test.cpp:174: Failure
+      Expected: 2
+To be equal to: bst.height()
+      Which is: 3
+[  FAILED  ] BSTTest.Test10_TwoChildrenRemove (11 ms)
+[ RUN      ] BSTTest.Test11_InsertAfterClear
+[       OK ] BSTTest.Test11_InsertAfterClear (4 ms)
+[ RUN      ] BSTTest.Test11_InsertAfterRemoveRoot
+[       OK ] BSTTest.Test11_InsertAfterRemoveRoot (3 ms)
+[ RUN      ] BSTTest.Stress1_Insert1000
+[       OK ] BSTTest.Stress1_Insert1000 (21 ms)
+[ RUN      ] BSTTest.Stress2_Remove1000
+[       OK ] BSTTest.Stress2_Remove1000 (66 ms)
+[----------] 14 tests from BSTTest (177 ms total)
+
+[----------] Global test environment tear-down
+[==========] 14 tests from 1 test case ran. (196 ms total)
+[  PASSED  ] 12 tests.
+[  FAILED  ] 2 tests, listed below:
+[  FAILED  ] BSTTest.Test9_TwoChildrenRemove
+[  FAILED  ] BSTTest.Test10_TwoChildrenRemove
+
+ 2 FAILED TESTS
+valgrind --tool=memcheck --leak-check=yes ./rotate_test
+Running main() from gtest_main.cc
+[==========] Running 4 tests from 1 test case.
+[----------] Global test environment set-up.
+[----------] 4 tests from RotateTest
+[ RUN      ] RotateTest.Test1_LeftRotate
+g++ -g -Wall -std=c++11  hw7_bst_test.cpp -I /usr/include/gtest/ -l gtest -l gtest_main -pthread -o bst_test
+g++ -g -Wall -std=c++11  hw7_rotate_test.cpp -I /usr/include/gtest/ -l gtest -l gtest_main -pthread -o rotate_test
+valgrind --tool=memcheck --leak-check=yes ./bst_test
+Running main() from gtest_main.cc
+[==========] Running 14 tests from 1 test case.
+[----------] Global test environment set-up.
+[----------] 14 tests from BSTTest
+[ RUN      ] BSTTest.Test1_Construction
+[       OK ] BSTTest.Test1_Construction (4 ms)
+[ RUN      ] BSTTest.Test2_EmptyTree
+[       OK ] BSTTest.Test2_EmptyTree (3 ms)
+[ RUN      ] BSTTest.Test3_SingleInsert
+[       OK ] BSTTest.Test3_SingleInsert (5 ms)
+[ RUN      ] BSTTest.Test4_BalancedInsert
+[       OK ] BSTTest.Test4_BalancedInsert (7 ms)
+[ RUN      ] BSTTest.Test5_UnbalancedInsert
+[       OK ] BSTTest.Test5_UnbalancedInsert (5 ms)
+[ RUN      ] BSTTest.Test6_SingleRemove
+[       OK ] BSTTest.Test6_SingleRemove (2 ms)
+[ RUN      ] BSTTest.Test7_RightChildRemove
+[       OK ] BSTTest.Test7_RightChildRemove (3 ms)
+[ RUN      ] BSTTest.Test8_LeftChildRemove
+[       OK ] BSTTest.Test8_LeftChildRemove (3 ms)
+[ RUN      ] BSTTest.Test9_TwoChildrenRemove
+valgrind --tool=memcheck --leak-check=yes ./rotate_test
+Running main() from gtest_main.cc
+[==========] Running 4 tests from 1 test case.
+[----------] Global test environment set-up.
+[----------] 4 tests from RotateTest
+[ RUN      ] RotateTest.Test1_LeftRotate
+valgrind --tool=memcheck --leak-check=yes ./bst_test
+Running main() from gtest_main.cc
+[==========] Running 14 tests from 1 test case.
+[----------] Global test environment set-up.
+[----------] 14 tests from BSTTest
+[ RUN      ] BSTTest.Test1_Construction
+[       OK ] BSTTest.Test1_Construction (4 ms)
+[ RUN      ] BSTTest.Test2_EmptyTree
+[       OK ] BSTTest.Test2_EmptyTree (3 ms)
+[ RUN      ] BSTTest.Test3_SingleInsert
+[       OK ] BSTTest.Test3_SingleInsert (5 ms)
+[ RUN      ] BSTTest.Test4_BalancedInsert
+[       OK ] BSTTest.Test4_BalancedInsert (7 ms)
+[ RUN      ] BSTTest.Test5_UnbalancedInsert
+[       OK ] BSTTest.Test5_UnbalancedInsert (5 ms)
+[ RUN      ] BSTTest.Test6_SingleRemove
+[       OK ] BSTTest.Test6_SingleRemove (2 ms)
+[ RUN      ] BSTTest.Test7_RightChildRemove
+[       OK ] BSTTest.Test7_RightChildRemove (3 ms)
+[ RUN      ] BSTTest.Test8_LeftChildRemove
+[       OK ] BSTTest.Test8_LeftChildRemove (3 ms)
+[ RUN      ] BSTTest.Test9_TwoChildrenRemove
+hw7_bst_test.cpp:152: Failure
+      Expected: 2
+To be equal to: bst.height()
+      Which is: 1
+hw7_bst_test.cpp:158: Failure
+      Expected: 1
+To be equal to: root->getKey()
+      Which is: 2
+hw7_bst_test.cpp:160: Failure
+Expected: (nullptr) != (root->getRight()), actual: 8-byte object <00-00 00-00 00-00 00-00> vs NULL
+[  FAILED  ] BSTTest.Test9_TwoChildrenRemove (46 ms)
+[ RUN      ] BSTTest.Test10_TwoChildrenRemove
+hw7_bst_test.cpp:174: Failure
+      Expected: 2
+To be equal to: bst.height()
+      Which is: 3
+hw7_bst_test.cpp:180: Failure
+      Expected: 4
+To be equal to: root->getKey()
+      Which is: 5
+[  FAILED  ] BSTTest.Test10_TwoChildrenRemove (10 ms)
+[ RUN      ] BSTTest.Test11_InsertAfterClear
+[       OK ] BSTTest.Test11_InsertAfterClear (4 ms)
+[ RUN      ] BSTTest.Test11_InsertAfterRemoveRoot
+[       OK ] BSTTest.Test11_InsertAfterRemoveRoot (3 ms)
+[ RUN      ] BSTTest.Stress1_Insert1000
+[       OK ] BSTTest.Stress1_Insert1000 (21 ms)
+[ RUN      ] BSTTest.Stress2_Remove1000
+[       OK ] BSTTest.Stress2_Remove1000 (56 ms)
+[----------] 14 tests from BSTTest (177 ms total)
+
+[----------] Global test environment tear-down
+[==========] 14 tests from 1 test case ran. (196 ms total)
+[  PASSED  ] 12 tests.
+[  FAILED  ] 2 tests, listed below:
+[  FAILED  ] BSTTest.Test9_TwoChildrenRemove
+[  FAILED  ] BSTTest.Test10_TwoChildrenRemove
+
+ 2 FAILED TESTS
+valgrind --tool=memcheck --leak-check=yes ./rotate_test
+Running main() from gtest_main.cc
+[==========] Running 4 tests from 1 test case.
+[----------] Global test environment set-up.
+[----------] 4 tests from RotateTest
+[ RUN      ] RotateTest.Test1_LeftRotate
+g++ -g -Wall -std=c++11  hw7_bst_test.cpp -I /usr/include/gtest/ -l gtest -l gtest_main -pthread -o bst_test
+g++ -g -Wall -std=c++11  hw7_rotate_test.cpp -I /usr/include/gtest/ -l gtest -l gtest_main -pthread -o rotate_test
+valgrind --tool=memcheck --leak-check=yes ./bst_test
+Running main() from gtest_main.cc
+[==========] Running 14 tests from 1 test case.
+[----------] Global test environment set-up.
+[----------] 14 tests from BSTTest
+[ RUN      ] BSTTest.Test1_Construction
+[       OK ] BSTTest.Test1_Construction (4 ms)
+[ RUN      ] BSTTest.Test2_EmptyTree
+[       OK ] BSTTest.Test2_EmptyTree (3 ms)
+[ RUN      ] BSTTest.Test3_SingleInsert
+[       OK ] BSTTest.Test3_SingleInsert (5 ms)
+[ RUN      ] BSTTest.Test4_BalancedInsert
+[       OK ] BSTTest.Test4_BalancedInsert (7 ms)
+[ RUN      ] BSTTest.Test5_UnbalancedInsert
+[       OK ] BSTTest.Test5_UnbalancedInsert (5 ms)
+[ RUN      ] BSTTest.Test6_SingleRemove
+[       OK ] BSTTest.Test6_SingleRemove (2 ms)
+[ RUN      ] BSTTest.Test7_RightChildRemove
+[       OK ] BSTTest.Test7_RightChildRemove (3 ms)
+[ RUN      ] BSTTest.Test8_LeftChildRemove
+[       OK ] BSTTest.Test8_LeftChildRemove (3 ms)
+[ RUN      ] BSTTest.Test9_TwoChildrenRemove
+hw7_bst_test.cpp:152: Failure
+      Expected: 2
+To be equal to: bst.height()
+      Which is: 1
+hw7_bst_test.cpp:160: Failure
+Expected: (nullptr) != (root->getRight()), actual: 8-byte object <00-00 00-00 00-00 00-00> vs NULL
+[  FAILED  ] BSTTest.Test9_TwoChildrenRemove (44 ms)
+[ RUN      ] BSTTest.Test10_TwoChildrenRemove
+[       OK ] BSTTest.Test10_TwoChildrenRemove (5 ms)
+[ RUN      ] BSTTest.Test11_InsertAfterClear
+[       OK ] BSTTest.Test11_InsertAfterClear (4 ms)
+[ RUN      ] BSTTest.Test11_InsertAfterRemoveRoot
+[       OK ] BSTTest.Test11_InsertAfterRemoveRoot (3 ms)
+[ RUN      ] BSTTest.Stress1_Insert1000
+[       OK ] BSTTest.Stress1_Insert1000 (20 ms)
+[ RUN      ] BSTTest.Stress2_Remove1000
+[       OK ] BSTTest.Stress2_Remove1000 (54 ms)
+[----------] 14 tests from BSTTest (167 ms total)
+
+[----------] Global test environment tear-down
+[==========] 14 tests from 1 test case ran. (187 ms total)
+[  PASSED  ] 13 tests.
+[  FAILED  ] 1 test, listed below:
+[  FAILED  ] BSTTest.Test9_TwoChildrenRemove
+
+ 1 FAILED TEST
+valgrind --tool=memcheck --leak-check=yes ./rotate_test
+Running main() from gtest_main.cc
+[==========] Running 4 tests from 1 test case.
+[----------] Global test environment set-up.
+[----------] 4 tests from RotateTest
+[ RUN      ] RotateTest.Test1_LeftRotate

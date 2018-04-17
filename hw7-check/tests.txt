@@ -1141,3 +1141,294 @@ Running main() from gtest_main.cc
 [ RUN      ] RotateTest.Test3_Transform
 [       OK ] RotateTest.Test3_Transform (34 ms)
 [ RUN      ] RotateTest.Stress1_Transform1000
+g++ -g -Wall -std=c++11  hw7_bst_test.cpp -I /usr/include/gtest/ -l gtest -l gtest_main -pthread -o bst_test
+g++ -g -Wall -std=c++11  hw7_rotate_test.cpp -I /usr/include/gtest/ -l gtest -l gtest_main -pthread -o rotate_test
+g++ -g -Wall -std=c++11  hw7_rotate_test.cpp -I /usr/include/gtest/ -l gtest -l gtest_main -pthread -o rotate_test
+valgrind --tool=memcheck --leak-check=yes ./bst_test
+Running main() from gtest_main.cc
+[==========] Running 14 tests from 1 test case.
+[----------] Global test environment set-up.
+[----------] 14 tests from BSTTest
+[ RUN      ] BSTTest.Test1_Construction
+[       OK ] BSTTest.Test1_Construction (5 ms)
+[ RUN      ] BSTTest.Test2_EmptyTree
+[       OK ] BSTTest.Test2_EmptyTree (3 ms)
+[ RUN      ] BSTTest.Test3_SingleInsert
+[       OK ] BSTTest.Test3_SingleInsert (6 ms)
+[ RUN      ] BSTTest.Test4_BalancedInsert
+[       OK ] BSTTest.Test4_BalancedInsert (8 ms)
+[ RUN      ] BSTTest.Test5_UnbalancedInsert
+[       OK ] BSTTest.Test5_UnbalancedInsert (6 ms)
+[ RUN      ] BSTTest.Test6_SingleRemove
+[       OK ] BSTTest.Test6_SingleRemove (3 ms)
+[ RUN      ] BSTTest.Test7_RightChildRemove
+[       OK ] BSTTest.Test7_RightChildRemove (3 ms)
+[ RUN      ] BSTTest.Test8_LeftChildRemove
+[       OK ] BSTTest.Test8_LeftChildRemove (3 ms)
+[ RUN      ] BSTTest.Test9_TwoChildrenRemove
+hw7_bst_test.cpp:160: Failure
+Expected: (nullptr) != (root->getRight()), actual: 8-byte object <00-00 00-00 00-00 00-00> vs NULL
+[  FAILED  ] BSTTest.Test9_TwoChildrenRemove (44 ms)
+[ RUN      ] BSTTest.Test10_TwoChildrenRemove
+[       OK ] BSTTest.Test10_TwoChildrenRemove (7 ms)
+[ RUN      ] BSTTest.Test11_InsertAfterClear
+[       OK ] BSTTest.Test11_InsertAfterClear (5 ms)
+[ RUN      ] BSTTest.Test11_InsertAfterRemoveRoot
+[       OK ] BSTTest.Test11_InsertAfterRemoveRoot (3 ms)
+[ RUN      ] BSTTest.Stress1_Insert1000
+[       OK ] BSTTest.Stress1_Insert1000 (24 ms)
+[ RUN      ] BSTTest.Stress2_Remove1000
+[       OK ] BSTTest.Stress2_Remove1000 (59 ms)
+[----------] 14 tests from BSTTest (187 ms total)
+
+[----------] Global test environment tear-down
+[==========] 14 tests from 1 test case ran. (211 ms total)
+[  PASSED  ] 13 tests.
+[  FAILED  ] 1 test, listed below:
+[  FAILED  ] BSTTest.Test9_TwoChildrenRemove
+
+ 1 FAILED TEST
+valgrind --tool=memcheck --leak-check=yes ./rotate_test
+Running main() from gtest_main.cc
+[==========] Running 4 tests from 1 test case.
+[----------] Global test environment set-up.
+[----------] 4 tests from RotateTest
+[ RUN      ] RotateTest.Test1_LeftRotate
+[       OK ] RotateTest.Test1_LeftRotate (17 ms)
+[ RUN      ] RotateTest.Test2_RightRotate
+[       OK ] RotateTest.Test2_RightRotate (5 ms)
+[ RUN      ] RotateTest.Test3_Transform
+[       OK ] RotateTest.Test3_Transform (41 ms)
+[ RUN      ] RotateTest.Stress1_Transform1000
+g++ -g -Wall -std=c++11  hw7_rotate_test.cpp -I /usr/include/gtest/ -l gtest -l gtest_main -pthread -o rotate_test
+g++ -g -Wall -std=c++11  hw7_rotate_test.cpp -I /usr/include/gtest/ -l gtest -l gtest_main -pthread -o rotate_test
+g++ -g -Wall -std=c++11  hw7_rotate_test.cpp -I /usr/include/gtest/ -l gtest -l gtest_main -pthread -o rotate_test
+valgrind --tool=memcheck --leak-check=yes ./bst_test
+Running main() from gtest_main.cc
+[==========] Running 14 tests from 1 test case.
+[----------] Global test environment set-up.
+[----------] 14 tests from BSTTest
+[ RUN      ] BSTTest.Test1_Construction
+[       OK ] BSTTest.Test1_Construction (5 ms)
+[ RUN      ] BSTTest.Test2_EmptyTree
+[       OK ] BSTTest.Test2_EmptyTree (3 ms)
+[ RUN      ] BSTTest.Test3_SingleInsert
+[       OK ] BSTTest.Test3_SingleInsert (6 ms)
+[ RUN      ] BSTTest.Test4_BalancedInsert
+[       OK ] BSTTest.Test4_BalancedInsert (8 ms)
+[ RUN      ] BSTTest.Test5_UnbalancedInsert
+[       OK ] BSTTest.Test5_UnbalancedInsert (5 ms)
+[ RUN      ] BSTTest.Test6_SingleRemove
+[       OK ] BSTTest.Test6_SingleRemove (3 ms)
+[ RUN      ] BSTTest.Test7_RightChildRemove
+[       OK ] BSTTest.Test7_RightChildRemove (4 ms)
+[ RUN      ] BSTTest.Test8_LeftChildRemove
+[       OK ] BSTTest.Test8_LeftChildRemove (4 ms)
+[ RUN      ] BSTTest.Test9_TwoChildrenRemove
+hw7_bst_test.cpp:160: Failure
+Expected: (nullptr) != (root->getRight()), actual: 8-byte object <00-00 00-00 00-00 00-00> vs NULL
+[  FAILED  ] BSTTest.Test9_TwoChildrenRemove (48 ms)
+[ RUN      ] BSTTest.Test10_TwoChildrenRemove
+[       OK ] BSTTest.Test10_TwoChildrenRemove (6 ms)
+[ RUN      ] BSTTest.Test11_InsertAfterClear
+[       OK ] BSTTest.Test11_InsertAfterClear (5 ms)
+[ RUN      ] BSTTest.Test11_InsertAfterRemoveRoot
+[       OK ] BSTTest.Test11_InsertAfterRemoveRoot (3 ms)
+[ RUN      ] BSTTest.Stress1_Insert1000
+[       OK ] BSTTest.Stress1_Insert1000 (26 ms)
+[ RUN      ] BSTTest.Stress2_Remove1000
+[       OK ] BSTTest.Stress2_Remove1000 (57 ms)
+[----------] 14 tests from BSTTest (192 ms total)
+
+[----------] Global test environment tear-down
+[==========] 14 tests from 1 test case ran. (214 ms total)
+[  PASSED  ] 13 tests.
+[  FAILED  ] 1 test, listed below:
+[  FAILED  ] BSTTest.Test9_TwoChildrenRemove
+
+ 1 FAILED TEST
+valgrind --tool=memcheck --leak-check=yes ./rotate_test
+Running main() from gtest_main.cc
+[==========] Running 4 tests from 1 test case.
+[----------] Global test environment set-up.
+[----------] 4 tests from RotateTest
+[ RUN      ] RotateTest.Test1_LeftRotate
+[       OK ] RotateTest.Test1_LeftRotate (19 ms)
+[ RUN      ] RotateTest.Test2_RightRotate
+[       OK ] RotateTest.Test2_RightRotate (5 ms)
+[ RUN      ] RotateTest.Test3_Transform
+[       OK ] RotateTest.Test3_Transform (43 ms)
+[ RUN      ] RotateTest.Stress1_Transform1000
+g++ -g -Wall -std=c++11  hw7_rotate_test.cpp -I /usr/include/gtest/ -l gtest -l gtest_main -pthread -o rotate_test
+g++ -g -Wall -std=c++11  hw7_rotate_test.cpp -I /usr/include/gtest/ -l gtest -l gtest_main -pthread -o rotate_test
+g++ -g -Wall -std=c++11  hw7_rotate_test.cpp -I /usr/include/gtest/ -l gtest -l gtest_main -pthread -o rotate_test
+g++ -g -Wall -std=c++11  hw7_rotate_test.cpp -I /usr/include/gtest/ -l gtest -l gtest_main -pthread -o rotate_test
+valgrind --tool=memcheck --leak-check=yes ./bst_test
+Running main() from gtest_main.cc
+[==========] Running 14 tests from 1 test case.
+[----------] Global test environment set-up.
+[----------] 14 tests from BSTTest
+[ RUN      ] BSTTest.Test1_Construction
+[       OK ] BSTTest.Test1_Construction (6 ms)
+[ RUN      ] BSTTest.Test2_EmptyTree
+[       OK ] BSTTest.Test2_EmptyTree (4 ms)
+[ RUN      ] BSTTest.Test3_SingleInsert
+[       OK ] BSTTest.Test3_SingleInsert (5 ms)
+[ RUN      ] BSTTest.Test4_BalancedInsert
+[       OK ] BSTTest.Test4_BalancedInsert (8 ms)
+[ RUN      ] BSTTest.Test5_UnbalancedInsert
+[       OK ] BSTTest.Test5_UnbalancedInsert (5 ms)
+[ RUN      ] BSTTest.Test6_SingleRemove
+[       OK ] BSTTest.Test6_SingleRemove (3 ms)
+[ RUN      ] BSTTest.Test7_RightChildRemove
+[       OK ] BSTTest.Test7_RightChildRemove (4 ms)
+[ RUN      ] BSTTest.Test8_LeftChildRemove
+[       OK ] BSTTest.Test8_LeftChildRemove (3 ms)
+[ RUN      ] BSTTest.Test9_TwoChildrenRemove
+hw7_bst_test.cpp:160: Failure
+Expected: (nullptr) != (root->getRight()), actual: 8-byte object <00-00 00-00 00-00 00-00> vs NULL
+[  FAILED  ] BSTTest.Test9_TwoChildrenRemove (47 ms)
+[ RUN      ] BSTTest.Test10_TwoChildrenRemove
+[       OK ] BSTTest.Test10_TwoChildrenRemove (7 ms)
+[ RUN      ] BSTTest.Test11_InsertAfterClear
+[       OK ] BSTTest.Test11_InsertAfterClear (5 ms)
+[ RUN      ] BSTTest.Test11_InsertAfterRemoveRoot
+[       OK ] BSTTest.Test11_InsertAfterRemoveRoot (4 ms)
+[ RUN      ] BSTTest.Stress1_Insert1000
+[       OK ] BSTTest.Stress1_Insert1000 (26 ms)
+[ RUN      ] BSTTest.Stress2_Remove1000
+[       OK ] BSTTest.Stress2_Remove1000 (60 ms)
+[----------] 14 tests from BSTTest (193 ms total)
+
+[----------] Global test environment tear-down
+[==========] 14 tests from 1 test case ran. (216 ms total)
+[  PASSED  ] 13 tests.
+[  FAILED  ] 1 test, listed below:
+[  FAILED  ] BSTTest.Test9_TwoChildrenRemove
+
+ 1 FAILED TEST
+valgrind --tool=memcheck --leak-check=yes ./rotate_test
+Running main() from gtest_main.cc
+[==========] Running 4 tests from 1 test case.
+[----------] Global test environment set-up.
+[----------] 4 tests from RotateTest
+[ RUN      ] RotateTest.Test1_LeftRotate
+[       OK ] RotateTest.Test1_LeftRotate (18 ms)
+[ RUN      ] RotateTest.Test2_RightRotate
+[       OK ] RotateTest.Test2_RightRotate (5 ms)
+[ RUN      ] RotateTest.Test3_Transform
+[       OK ] RotateTest.Test3_Transform (44 ms)
+[ RUN      ] RotateTest.Stress1_Transform1000
+valgrind --tool=memcheck --leak-check=yes ./bst_test
+Running main() from gtest_main.cc
+[==========] Running 14 tests from 1 test case.
+[----------] Global test environment set-up.
+[----------] 14 tests from BSTTest
+[ RUN      ] BSTTest.Test1_Construction
+[       OK ] BSTTest.Test1_Construction (5 ms)
+[ RUN      ] BSTTest.Test2_EmptyTree
+[       OK ] BSTTest.Test2_EmptyTree (3 ms)
+[ RUN      ] BSTTest.Test3_SingleInsert
+[       OK ] BSTTest.Test3_SingleInsert (6 ms)
+[ RUN      ] BSTTest.Test4_BalancedInsert
+[       OK ] BSTTest.Test4_BalancedInsert (8 ms)
+[ RUN      ] BSTTest.Test5_UnbalancedInsert
+[       OK ] BSTTest.Test5_UnbalancedInsert (6 ms)
+[ RUN      ] BSTTest.Test6_SingleRemove
+[       OK ] BSTTest.Test6_SingleRemove (3 ms)
+[ RUN      ] BSTTest.Test7_RightChildRemove
+[       OK ] BSTTest.Test7_RightChildRemove (3 ms)
+[ RUN      ] BSTTest.Test8_LeftChildRemove
+[       OK ] BSTTest.Test8_LeftChildRemove (3 ms)
+[ RUN      ] BSTTest.Test9_TwoChildrenRemove
+hw7_bst_test.cpp:160: Failure
+Expected: (nullptr) != (root->getRight()), actual: 8-byte object <00-00 00-00 00-00 00-00> vs NULL
+[  FAILED  ] BSTTest.Test9_TwoChildrenRemove (46 ms)
+[ RUN      ] BSTTest.Test10_TwoChildrenRemove
+[       OK ] BSTTest.Test10_TwoChildrenRemove (6 ms)
+[ RUN      ] BSTTest.Test11_InsertAfterClear
+[       OK ] BSTTest.Test11_InsertAfterClear (4 ms)
+[ RUN      ] BSTTest.Test11_InsertAfterRemoveRoot
+[       OK ] BSTTest.Test11_InsertAfterRemoveRoot (3 ms)
+[ RUN      ] BSTTest.Stress1_Insert1000
+[       OK ] BSTTest.Stress1_Insert1000 (26 ms)
+[ RUN      ] BSTTest.Stress2_Remove1000
+[       OK ] BSTTest.Stress2_Remove1000 (57 ms)
+[----------] 14 tests from BSTTest (187 ms total)
+
+[----------] Global test environment tear-down
+[==========] 14 tests from 1 test case ran. (211 ms total)
+[  PASSED  ] 13 tests.
+[  FAILED  ] 1 test, listed below:
+[  FAILED  ] BSTTest.Test9_TwoChildrenRemove
+
+ 1 FAILED TEST
+valgrind --tool=memcheck --leak-check=yes ./rotate_test
+Running main() from gtest_main.cc
+[==========] Running 4 tests from 1 test case.
+[----------] Global test environment set-up.
+[----------] 4 tests from RotateTest
+[ RUN      ] RotateTest.Test1_LeftRotate
+[       OK ] RotateTest.Test1_LeftRotate (17 ms)
+[ RUN      ] RotateTest.Test2_RightRotate
+[       OK ] RotateTest.Test2_RightRotate (6 ms)
+[ RUN      ] RotateTest.Test3_Transform
+[       OK ] RotateTest.Test3_Transform (42 ms)
+[ RUN      ] RotateTest.Stress1_Transform1000
+g++ -g -Wall -std=c++11  hw7_rotate_test.cpp -I /usr/include/gtest/ -l gtest -l gtest_main -pthread -o rotate_test
+valgrind --tool=memcheck --leak-check=yes ./bst_test
+Running main() from gtest_main.cc
+[==========] Running 14 tests from 1 test case.
+[----------] Global test environment set-up.
+[----------] 14 tests from BSTTest
+[ RUN      ] BSTTest.Test1_Construction
+[       OK ] BSTTest.Test1_Construction (5 ms)
+[ RUN      ] BSTTest.Test2_EmptyTree
+[       OK ] BSTTest.Test2_EmptyTree (3 ms)
+[ RUN      ] BSTTest.Test3_SingleInsert
+[       OK ] BSTTest.Test3_SingleInsert (6 ms)
+[ RUN      ] BSTTest.Test4_BalancedInsert
+[       OK ] BSTTest.Test4_BalancedInsert (8 ms)
+[ RUN      ] BSTTest.Test5_UnbalancedInsert
+[       OK ] BSTTest.Test5_UnbalancedInsert (5 ms)
+[ RUN      ] BSTTest.Test6_SingleRemove
+[       OK ] BSTTest.Test6_SingleRemove (2 ms)
+[ RUN      ] BSTTest.Test7_RightChildRemove
+[       OK ] BSTTest.Test7_RightChildRemove (4 ms)
+[ RUN      ] BSTTest.Test8_LeftChildRemove
+[       OK ] BSTTest.Test8_LeftChildRemove (3 ms)
+[ RUN      ] BSTTest.Test9_TwoChildrenRemove
+hw7_bst_test.cpp:160: Failure
+Expected: (nullptr) != (root->getRight()), actual: 8-byte object <00-00 00-00 00-00 00-00> vs NULL
+[  FAILED  ] BSTTest.Test9_TwoChildrenRemove (46 ms)
+[ RUN      ] BSTTest.Test10_TwoChildrenRemove
+[       OK ] BSTTest.Test10_TwoChildrenRemove (7 ms)
+[ RUN      ] BSTTest.Test11_InsertAfterClear
+[       OK ] BSTTest.Test11_InsertAfterClear (5 ms)
+[ RUN      ] BSTTest.Test11_InsertAfterRemoveRoot
+[       OK ] BSTTest.Test11_InsertAfterRemoveRoot (3 ms)
+[ RUN      ] BSTTest.Stress1_Insert1000
+[       OK ] BSTTest.Stress1_Insert1000 (27 ms)
+[ RUN      ] BSTTest.Stress2_Remove1000
+[       OK ] BSTTest.Stress2_Remove1000 (59 ms)
+[----------] 14 tests from BSTTest (191 ms total)
+
+[----------] Global test environment tear-down
+[==========] 14 tests from 1 test case ran. (214 ms total)
+[  PASSED  ] 13 tests.
+[  FAILED  ] 1 test, listed below:
+[  FAILED  ] BSTTest.Test9_TwoChildrenRemove
+
+ 1 FAILED TEST
+valgrind --tool=memcheck --leak-check=yes ./rotate_test
+Running main() from gtest_main.cc
+[==========] Running 4 tests from 1 test case.
+[----------] Global test environment set-up.
+[----------] 4 tests from RotateTest
+[ RUN      ] RotateTest.Test1_LeftRotate
+[       OK ] RotateTest.Test1_LeftRotate (17 ms)
+[ RUN      ] RotateTest.Test2_RightRotate
+[       OK ] RotateTest.Test2_RightRotate (5 ms)
+[ RUN      ] RotateTest.Test3_Transform
+[       OK ] RotateTest.Test3_Transform (41 ms)
+[ RUN      ] RotateTest.Stress1_Transform1000

@@ -16,7 +16,35 @@ protected:
 
 private:
   void insertToHash(Node<Key, Value> *root, std::unordered_set<Key> &s) const;
+  void updateHeight(Node<Key, Value> *root);
+  void transformSubtree(rotateBST<Key, Value> &t2, Node<Key, Value> *root2,
+                        Node<Key, Value> *root1) const;
 };
+
+template <typename Key, typename Value>
+void rotateBST<Key, Value>::updateHeight(Node<Key, Value> *root) {
+  while (root != NULL) {
+    Node<Key, Value> *right = root->getRight();
+    Node<Key, Value> *left = root->getLeft();
+    int rightHeight, leftHeight;
+    if (right == NULL) {
+      rightHeight = 0;
+    } else {
+      rightHeight = right->getHeight();
+    }
+    if (left == NULL) {
+      leftHeight = 0;
+    } else {
+      leftHeight = left->getHeight();
+    }
+    if (leftHeight > rightHeight) {
+      root->setHeight(leftHeight + 1);
+    } else {
+      root->setHeight(rightHeight + 1);
+    }
+    root = root->getParent();
+  }
+}
 
 template <typename Key, typename Value>
 void rotateBST<Key, Value>::insertToHash(Node<Key, Value> *root,
@@ -46,6 +74,25 @@ bool rotateBST<Key, Value>::sameKeys(const rotateBST<Key, Value> &t2) const {
 }
 
 template <typename Key, typename Value>
+void rotateBST<Key, Value>::transformSubtree(rotateBST<Key, Value> &t2,
+                                             Node<Key, Value> *root2,
+                                             Node<Key, Value> *root1) const {
+  if (root1 == NULL && root2 == NULL) {
+    return;
+  }
+  while (root2->getLeft() != NULL) {
+    t2.rightRotate(root2);
+    root2 = root2->getParent();
+  }
+  while (root2->getKey() != root1->getKey()) {
+    t2.leftRotate(root2);
+    root2 = root2->getParent();
+  }
+  transformSubtree(t2, root2->getRight(), root1->getRight());
+  transformSubtree(t2, root2->getLeft(), root1->getLeft());
+}
+
+template <typename Key, typename Value>
 void rotateBST<Key, Value>::transform(rotateBST<Key, Value> &t2) const {
   // TODO
   if (!sameKeys(t2)) {
@@ -69,6 +116,8 @@ void rotateBST<Key, Value>::transform(rotateBST<Key, Value> &t2) const {
   }
 
   // TODO: everything else
+  transformSubtree(t2, root->getRight(), this->mRoot->getRight());
+  transformSubtree(t2, root->getLeft(), this->mRoot->getLeft());
 }
 
 template <typename Key, typename Value>

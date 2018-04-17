@@ -189,13 +189,15 @@ public:
   BinarySearchTree();          // TODO
   virtual ~BinarySearchTree(); // TODO
   int height();                // TODO
-  void updateHeight(Node<Key, Value> *root);
-  bool isBalanced(); // TODO
+  bool isBalanced();           // TODO
   bool isBalancedHelper(Node<Key, Value> *root);
   virtual void insert(const std::pair<const Key, Value> &keyValuePair); // TODO
   virtual void remove(const Key &key);                                  // TODO
   void clear();                                                         // TODO
   void print() const;
+
+private:
+  void updateHeight(Node<Key, Value> *root);
 
 public:
   /**
@@ -587,8 +589,8 @@ void BinarySearchTree<Key, Value>::remove(const Key &key) {
     Node<Key, Value> *predParent = pred->getParent();
 
     predParent->setRight(NULL);
-    Node<Key, Value> *newRoot =
-        new Node<Key, Value>(pred->getKey(), pred->getValue(), removeNodeParent);
+    Node<Key, Value> *newRoot = new Node<Key, Value>(
+        pred->getKey(), pred->getValue(), removeNodeParent);
     newRoot->setRight(removeNode->getRight());
     newRoot->setLeft(removeNode->getLeft());
     if (removeNodeParent != NULL) {
@@ -598,15 +600,15 @@ void BinarySearchTree<Key, Value>::remove(const Key &key) {
         removeNodeParent->setLeft(newRoot);
       }
     }
-    Node<Key, Value>* left = removeNode->getLeft();
-    Node<Key, Value>* right = removeNode->getRight();
+    Node<Key, Value> *left = removeNode->getLeft();
+    Node<Key, Value> *right = removeNode->getRight();
     if (left != NULL) {
-      
-    left->setParent(newRoot);
+
+      left->setParent(newRoot);
     }
     if (right != NULL) {
-      
-    right->setParent(newRoot);
+
+      right->setParent(newRoot);
     }
     newRoot->setParent(removeNodeParent);
     delete removeNode;
@@ -624,7 +626,7 @@ void BinarySearchTree<Key, Value>::remove(const Key &key) {
     delete pred;
     if (newRoot == mRoot) {
       updateHeight(newRoot);
-    } 
+    }
     updateHeight(predParent);
   }
 }

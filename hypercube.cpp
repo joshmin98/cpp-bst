@@ -1,12 +1,18 @@
-#include <queue>
-#include <string>
-#include <set>
+#include <cstdlib>
 #include <fstream>
 #include <iostream>
-#include <cstdlib>
+#include <queue>
+#include <set>
+#include <string>
 
-int numOnes(const std::string& key) {
-  
+int numOnes(const std::string &key) {
+  int nodeNum = atoi(key.c_str());
+  int startNum = 0;
+  while (nodeNum != 0) {
+    startNum += nodeNum % 10;
+    nodeNum /= 10;
+  }
+  return startNum;
 }
 
 struct Node {
@@ -14,28 +20,20 @@ struct Node {
   int weight;
   int distance;
   int numOnes;
-  std::set<Node*> adjacent;
+  std::set<Node *> adjacent;
 
-  Node(const std::string &readKey) {
-    key = readKey;
-  }
+  Node(const std::string &readKey) { key = readKey; }
 };
 
-int main(int argc, char *argv[])
-{
+int main(int argc, char *argv[]) {
   if (argc < 3) {
     return -1;
   }
 
-  std::string startNode = argv[1];
-  int nodeNum = atoi(startNode.c_str());
-  int startNum = 0;
-  while (nodeNum != 0) {
-    startNum += nodeNum % 10;
-    nodeNum/= 10;
-  }
-  int lowerBound = startNode.length() - startNum;
+  std::string startKey = argv[1];
+  int startNum = numOnes(startKey);
 
+  int lowerBound = startNode.length() - startNum;
 
   std::ifstream infile(argv[2]);
   std::string line = "";
@@ -44,9 +42,6 @@ int main(int argc, char *argv[])
   if (maxNumNodes < lowerBound) {
     return -1;
   }
-
-
-
 
   return 0;
 }

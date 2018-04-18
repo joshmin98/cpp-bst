@@ -2,7 +2,9 @@
 #define ROTATEBST_H
 
 #include "bst.h"
+#include <iostream>
 #include <unordered_set>
+#include <cassert>
 
 template <typename Key, typename Value>
 class rotateBST : public BinarySearchTree<Key, Value> {
@@ -80,21 +82,25 @@ void rotateBST<Key, Value>::transformSubtree(rotateBST<Key, Value> &t2,
   if (root1 == NULL && root2 == NULL) {
     return;
   }
-  while (root2->getLeft() != NULL) {
-    t2.rightRotate(root2);
-    root2 = root2->getParent();
+  if (root2->getLeft() == NULL) {
+    while (root2->getKey() != root1->getKey()) {
+      t2.rightRotate(root2);
+      root2 = root2->getParent();
+    }
   }
-  while (root2->getKey() != root1->getKey()) {
-    t2.leftRotate(root2);
-    root2 = root2->getParent();
+  else if (root2->getRight() == NULL) {
+    while (root2->getKey() != root1->getKey()) {
+      t2.leftRotate(root2);
+      root2 = root2->getParent();
+    }
   }
+
   transformSubtree(t2, root2->getRight(), root1->getRight());
   transformSubtree(t2, root2->getLeft(), root1->getLeft());
 }
 
 template <typename Key, typename Value>
 void rotateBST<Key, Value>::transform(rotateBST<Key, Value> &t2) const {
-  // TODO
   if (!sameKeys(t2)) {
     return;
   }
@@ -115,7 +121,7 @@ void rotateBST<Key, Value>::transform(rotateBST<Key, Value> &t2) const {
     root = t2.mRoot;
   }
 
-  // TODO: everything else
+  // Transforming subtrees
   transformSubtree(t2, root->getRight(), this->mRoot->getRight());
   transformSubtree(t2, root->getLeft(), this->mRoot->getLeft());
 }

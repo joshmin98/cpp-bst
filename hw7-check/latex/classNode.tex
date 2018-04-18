@@ -1,0 +1,194 @@
+\hypertarget{classNode}{}\section{Node$<$ Key, Value $>$ Class Template Reference}
+\label{classNode}\index{Node$<$ Key, Value $>$@{Node$<$ Key, Value $>$}}
+
+
+{\ttfamily \#include $<$hw7\+\_\+provided\+\_\+bst.\+h$>$}
+
+Inheritance diagram for Node$<$ Key, Value $>$\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classNode}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classNode_ac9bdc0036be15ac4b622696c804c501f}{Node}} (const Key \&key, const Value \&value, \mbox{\hyperlink{classNode}{Node}}$<$ Key, Value $>$ $\ast$parent)
+\item 
+virtual \mbox{\hyperlink{classNode_aaa753148a7bac7330974f1a9bc9249f1}{$\sim$\+Node}} ()
+\item 
+const std\+::pair$<$ const Key, Value $>$ \& \mbox{\hyperlink{classNode_a41e3bd64767b0a5ed30c6f9d8d6b3ead}{get\+Item}} () const
+\item 
+std\+::pair$<$ const Key, Value $>$ \& \mbox{\hyperlink{classNode_a4e683e6ac10c3015939f9598bb2c2629}{get\+Item}} ()
+\item 
+const Key \& \mbox{\hyperlink{classNode_a9ad1feabf07e276143802749d48a5736}{get\+Key}} () const
+\item 
+const Value \& \mbox{\hyperlink{classNode_a8c36066d5be674c07d2b3805cc76fc08}{get\+Value}} () const
+\item 
+Value \& \mbox{\hyperlink{classNode_abdbbc3b9627d1bfe2106c2000d410811}{get\+Value}} ()
+\item 
+virtual \mbox{\hyperlink{classNode}{Node}}$<$ Key, Value $>$ $\ast$ \mbox{\hyperlink{classNode_a69339fc2a76f5b4456ecc930703f93cd}{get\+Parent}} () const
+\item 
+virtual \mbox{\hyperlink{classNode}{Node}}$<$ Key, Value $>$ $\ast$ \mbox{\hyperlink{classNode_aaa2c1b8458c0df8489ac991cf03d3c33}{get\+Left}} () const
+\item 
+virtual \mbox{\hyperlink{classNode}{Node}}$<$ Key, Value $>$ $\ast$ \mbox{\hyperlink{classNode_a148e0ef6995e7c8aa344779e0cca507a}{get\+Right}} () const
+\item 
+int \mbox{\hyperlink{classNode_a42201a49f8c8bef979f79baa75d70109}{get\+Height}} () const
+\item 
+void \mbox{\hyperlink{classNode_a981799e30e7649812c2ad3a2d43c3f94}{set\+Parent}} (\mbox{\hyperlink{classNode}{Node}}$<$ Key, Value $>$ $\ast$parent)
+\item 
+void \mbox{\hyperlink{classNode_af0a4ecd342adca0c1db88f0811ad0068}{set\+Left}} (\mbox{\hyperlink{classNode}{Node}}$<$ Key, Value $>$ $\ast$left)
+\item 
+void \mbox{\hyperlink{classNode_ade5c16875afa559250c7a49d56007685}{set\+Right}} (\mbox{\hyperlink{classNode}{Node}}$<$ Key, Value $>$ $\ast$right)
+\item 
+void \mbox{\hyperlink{classNode_ab9b9a0da6a6b481623a3d1a7de5594a9}{set\+Value}} (const Value \&value)
+\item 
+void \mbox{\hyperlink{classNode_ada6fa2c6e9c7ab2330e63ab44199ed35}{set\+Height}} (int height)
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classNode_a7d5cce0902ef996ebf45451db8b667fb}\label{classNode_a7d5cce0902ef996ebf45451db8b667fb}} 
+std\+::pair$<$ const Key, Value $>$ {\bfseries m\+Item}
+\item 
+\mbox{\Hypertarget{classNode_a0edda9f5ea45078bef125a1298de9bef}\label{classNode_a0edda9f5ea45078bef125a1298de9bef}} 
+\mbox{\hyperlink{classNode}{Node}}$<$ Key, Value $>$ $\ast$ {\bfseries m\+Parent}
+\item 
+\mbox{\Hypertarget{classNode_a93b44cfd9f890e4ac24b84bb4c06b68d}\label{classNode_a93b44cfd9f890e4ac24b84bb4c06b68d}} 
+\mbox{\hyperlink{classNode}{Node}}$<$ Key, Value $>$ $\ast$ {\bfseries m\+Left}
+\item 
+\mbox{\Hypertarget{classNode_a3698d0c83982838834bc2218b15d7013}\label{classNode_a3698d0c83982838834bc2218b15d7013}} 
+\mbox{\hyperlink{classNode}{Node}}$<$ Key, Value $>$ $\ast$ {\bfseries m\+Right}
+\item 
+\mbox{\Hypertarget{classNode_a2ca4a790470adabeff9e94becee1e000}\label{classNode_a2ca4a790470adabeff9e94becee1e000}} 
+int {\bfseries m\+Height}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$typename Key, typename Value$>$\newline
+class Node$<$ Key, Value $>$}
+
+A templated class for a \mbox{\hyperlink{classNode}{Node}} in a search tree. The getters for parent/left/right are virtual so that they can be overridden for future kinds of search trees, such as Red Black trees, Splay trees, and A\+VL trees. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classNode_ac9bdc0036be15ac4b622696c804c501f}\label{classNode_ac9bdc0036be15ac4b622696c804c501f}} 
+\index{Node@{Node}!Node@{Node}}
+\index{Node@{Node}!Node@{Node}}
+\subsubsection{\texorpdfstring{Node()}{Node()}}
+{\footnotesize\ttfamily template$<$typename Key , typename Value $>$ \\
+\mbox{\hyperlink{classNode}{Node}}$<$ Key, Value $>$\+::\mbox{\hyperlink{classNode}{Node}} (\begin{DoxyParamCaption}\item[{const Key \&}]{key,  }\item[{const Value \&}]{value,  }\item[{\mbox{\hyperlink{classNode}{Node}}$<$ Key, Value $>$ $\ast$}]{parent }\end{DoxyParamCaption})}
+
+Explicit constructor for a node. \mbox{\Hypertarget{classNode_aaa753148a7bac7330974f1a9bc9249f1}\label{classNode_aaa753148a7bac7330974f1a9bc9249f1}} 
+\index{Node@{Node}!````~Node@{$\sim$\+Node}}
+\index{````~Node@{$\sim$\+Node}!Node@{Node}}
+\subsubsection{\texorpdfstring{$\sim$\+Node()}{~Node()}}
+{\footnotesize\ttfamily template$<$typename Key , typename Value $>$ \\
+\mbox{\hyperlink{classNode}{Node}}$<$ Key, Value $>$\+::$\sim$\mbox{\hyperlink{classNode}{Node}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Destructor, which does not need to do anything since the pointers inside of a node are only used as references to existing nodes. The nodes pointed to by parent/left/right are freed within the delete\+All() helper method in the \mbox{\hyperlink{classBinarySearchTree}{Binary\+Search\+Tree}}. 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classNode_a42201a49f8c8bef979f79baa75d70109}\label{classNode_a42201a49f8c8bef979f79baa75d70109}} 
+\index{Node@{Node}!get\+Height@{get\+Height}}
+\index{get\+Height@{get\+Height}!Node@{Node}}
+\subsubsection{\texorpdfstring{get\+Height()}{getHeight()}}
+{\footnotesize\ttfamily template$<$typename Key , typename Value $>$ \\
+int \mbox{\hyperlink{classNode}{Node}}$<$ Key, Value $>$\+::get\+Height (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+A const getter for the height. \mbox{\Hypertarget{classNode_a41e3bd64767b0a5ed30c6f9d8d6b3ead}\label{classNode_a41e3bd64767b0a5ed30c6f9d8d6b3ead}} 
+\index{Node@{Node}!get\+Item@{get\+Item}}
+\index{get\+Item@{get\+Item}!Node@{Node}}
+\subsubsection{\texorpdfstring{get\+Item()}{getItem()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename Key , typename Value $>$ \\
+const std\+::pair$<$ const Key, Value $>$ \& \mbox{\hyperlink{classNode}{Node}}$<$ Key, Value $>$\+::get\+Item (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+A const getter for the item. \mbox{\Hypertarget{classNode_a4e683e6ac10c3015939f9598bb2c2629}\label{classNode_a4e683e6ac10c3015939f9598bb2c2629}} 
+\index{Node@{Node}!get\+Item@{get\+Item}}
+\index{get\+Item@{get\+Item}!Node@{Node}}
+\subsubsection{\texorpdfstring{get\+Item()}{getItem()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename Key , typename Value $>$ \\
+std\+::pair$<$ const Key, Value $>$ \& \mbox{\hyperlink{classNode}{Node}}$<$ Key, Value $>$\+::get\+Item (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+A non-\/const getter for the item. \mbox{\Hypertarget{classNode_a9ad1feabf07e276143802749d48a5736}\label{classNode_a9ad1feabf07e276143802749d48a5736}} 
+\index{Node@{Node}!get\+Key@{get\+Key}}
+\index{get\+Key@{get\+Key}!Node@{Node}}
+\subsubsection{\texorpdfstring{get\+Key()}{getKey()}}
+{\footnotesize\ttfamily template$<$typename Key , typename Value $>$ \\
+const Key \& \mbox{\hyperlink{classNode}{Node}}$<$ Key, Value $>$\+::get\+Key (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+A const getter for the key. \mbox{\Hypertarget{classNode_aaa2c1b8458c0df8489ac991cf03d3c33}\label{classNode_aaa2c1b8458c0df8489ac991cf03d3c33}} 
+\index{Node@{Node}!get\+Left@{get\+Left}}
+\index{get\+Left@{get\+Left}!Node@{Node}}
+\subsubsection{\texorpdfstring{get\+Left()}{getLeft()}}
+{\footnotesize\ttfamily template$<$typename Key , typename Value $>$ \\
+\mbox{\hyperlink{classNode}{Node}}$<$ Key, Value $>$ $\ast$ \mbox{\hyperlink{classNode}{Node}}$<$ Key, Value $>$\+::get\+Left (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+An implementation of the virtual function for retreiving the left child. \mbox{\Hypertarget{classNode_a69339fc2a76f5b4456ecc930703f93cd}\label{classNode_a69339fc2a76f5b4456ecc930703f93cd}} 
+\index{Node@{Node}!get\+Parent@{get\+Parent}}
+\index{get\+Parent@{get\+Parent}!Node@{Node}}
+\subsubsection{\texorpdfstring{get\+Parent()}{getParent()}}
+{\footnotesize\ttfamily template$<$typename Key , typename Value $>$ \\
+\mbox{\hyperlink{classNode}{Node}}$<$ Key, Value $>$ $\ast$ \mbox{\hyperlink{classNode}{Node}}$<$ Key, Value $>$\+::get\+Parent (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+An implementation of the virtual function for retreiving the parent. \mbox{\Hypertarget{classNode_a148e0ef6995e7c8aa344779e0cca507a}\label{classNode_a148e0ef6995e7c8aa344779e0cca507a}} 
+\index{Node@{Node}!get\+Right@{get\+Right}}
+\index{get\+Right@{get\+Right}!Node@{Node}}
+\subsubsection{\texorpdfstring{get\+Right()}{getRight()}}
+{\footnotesize\ttfamily template$<$typename Key , typename Value $>$ \\
+\mbox{\hyperlink{classNode}{Node}}$<$ Key, Value $>$ $\ast$ \mbox{\hyperlink{classNode}{Node}}$<$ Key, Value $>$\+::get\+Right (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+An implementation of the virtual function for retreiving the right child. \mbox{\Hypertarget{classNode_a8c36066d5be674c07d2b3805cc76fc08}\label{classNode_a8c36066d5be674c07d2b3805cc76fc08}} 
+\index{Node@{Node}!get\+Value@{get\+Value}}
+\index{get\+Value@{get\+Value}!Node@{Node}}
+\subsubsection{\texorpdfstring{get\+Value()}{getValue()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename Key , typename Value $>$ \\
+const Value \& \mbox{\hyperlink{classNode}{Node}}$<$ Key, Value $>$\+::get\+Value (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+A const getter for the value. \mbox{\Hypertarget{classNode_abdbbc3b9627d1bfe2106c2000d410811}\label{classNode_abdbbc3b9627d1bfe2106c2000d410811}} 
+\index{Node@{Node}!get\+Value@{get\+Value}}
+\index{get\+Value@{get\+Value}!Node@{Node}}
+\subsubsection{\texorpdfstring{get\+Value()}{getValue()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename Key , typename Value $>$ \\
+Value \& \mbox{\hyperlink{classNode}{Node}}$<$ Key, Value $>$\+::get\+Value (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+A non-\/const getter for the value. \mbox{\Hypertarget{classNode_ada6fa2c6e9c7ab2330e63ab44199ed35}\label{classNode_ada6fa2c6e9c7ab2330e63ab44199ed35}} 
+\index{Node@{Node}!set\+Height@{set\+Height}}
+\index{set\+Height@{set\+Height}!Node@{Node}}
+\subsubsection{\texorpdfstring{set\+Height()}{setHeight()}}
+{\footnotesize\ttfamily template$<$typename Key , typename Value $>$ \\
+void \mbox{\hyperlink{classNode}{Node}}$<$ Key, Value $>$\+::set\+Height (\begin{DoxyParamCaption}\item[{int}]{height }\end{DoxyParamCaption})}
+
+A setter for the height of a node. \mbox{\Hypertarget{classNode_af0a4ecd342adca0c1db88f0811ad0068}\label{classNode_af0a4ecd342adca0c1db88f0811ad0068}} 
+\index{Node@{Node}!set\+Left@{set\+Left}}
+\index{set\+Left@{set\+Left}!Node@{Node}}
+\subsubsection{\texorpdfstring{set\+Left()}{setLeft()}}
+{\footnotesize\ttfamily template$<$typename Key , typename Value $>$ \\
+void \mbox{\hyperlink{classNode}{Node}}$<$ Key, Value $>$\+::set\+Left (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classNode}{Node}}$<$ Key, Value $>$ $\ast$}]{left }\end{DoxyParamCaption})}
+
+A setter for setting the left child of a node. \mbox{\Hypertarget{classNode_a981799e30e7649812c2ad3a2d43c3f94}\label{classNode_a981799e30e7649812c2ad3a2d43c3f94}} 
+\index{Node@{Node}!set\+Parent@{set\+Parent}}
+\index{set\+Parent@{set\+Parent}!Node@{Node}}
+\subsubsection{\texorpdfstring{set\+Parent()}{setParent()}}
+{\footnotesize\ttfamily template$<$typename Key , typename Value $>$ \\
+void \mbox{\hyperlink{classNode}{Node}}$<$ Key, Value $>$\+::set\+Parent (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classNode}{Node}}$<$ Key, Value $>$ $\ast$}]{parent }\end{DoxyParamCaption})}
+
+A setter for setting the parent of a node. \mbox{\Hypertarget{classNode_ade5c16875afa559250c7a49d56007685}\label{classNode_ade5c16875afa559250c7a49d56007685}} 
+\index{Node@{Node}!set\+Right@{set\+Right}}
+\index{set\+Right@{set\+Right}!Node@{Node}}
+\subsubsection{\texorpdfstring{set\+Right()}{setRight()}}
+{\footnotesize\ttfamily template$<$typename Key , typename Value $>$ \\
+void \mbox{\hyperlink{classNode}{Node}}$<$ Key, Value $>$\+::set\+Right (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classNode}{Node}}$<$ Key, Value $>$ $\ast$}]{right }\end{DoxyParamCaption})}
+
+A setter for setting the right child of a node. \mbox{\Hypertarget{classNode_ab9b9a0da6a6b481623a3d1a7de5594a9}\label{classNode_ab9b9a0da6a6b481623a3d1a7de5594a9}} 
+\index{Node@{Node}!set\+Value@{set\+Value}}
+\index{set\+Value@{set\+Value}!Node@{Node}}
+\subsubsection{\texorpdfstring{set\+Value()}{setValue()}}
+{\footnotesize\ttfamily template$<$typename Key , typename Value $>$ \\
+void \mbox{\hyperlink{classNode}{Node}}$<$ Key, Value $>$\+::set\+Value (\begin{DoxyParamCaption}\item[{const Value \&}]{value }\end{DoxyParamCaption})}
+
+A setter for the value of a node. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+hw7\+\_\+provided\+\_\+bst.\+h\end{DoxyCompactItemize}

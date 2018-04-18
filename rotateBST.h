@@ -2,9 +2,9 @@
 #define ROTATEBST_H
 
 #include "bst.h"
+#include <cassert>
 #include <iostream>
 #include <unordered_set>
-#include <cassert>
 
 template <typename Key, typename Value>
 class rotateBST : public BinarySearchTree<Key, Value> {
@@ -21,6 +21,7 @@ private:
   void updateHeight(Node<Key, Value> *root);
   void transformSubtree(rotateBST<Key, Value> &t2, Node<Key, Value> *root2,
                         Node<Key, Value> *root1) const;
+  void linearize(rotateBST<Key, Value> &t2, Node<Key, Value> *root) const;
 };
 
 template <typename Key, typename Value>
@@ -84,19 +85,31 @@ void rotateBST<Key, Value>::transformSubtree(rotateBST<Key, Value> &t2,
   }
   if (root2->getLeft() == NULL) {
     while (root2->getKey() != root1->getKey()) {
-      t2.rightRotate(root2);
+      t2.leftRotate(root2);
       root2 = root2->getParent();
     }
-  }
-  else if (root2->getRight() == NULL) {
+  } else if (root2->getRight() == NULL) {
     while (root2->getKey() != root1->getKey()) {
-      t2.leftRotate(root2);
+      t2.rightRotate(root2);
       root2 = root2->getParent();
     }
   }
 
   transformSubtree(t2, root2->getRight(), root1->getRight());
   transformSubtree(t2, root2->getLeft(), root1->getLeft());
+}
+
+template <typename Key, typename Value>
+void rotateBST<Key, Value>::linearize(rotateBST<Key, Value> &t2,
+                                      Node<Key, Value> *root) const {
+  if (root == NULL) {
+    return;
+  }
+  while (root->getLeft() != NULL) {
+    t2.rightRotate(root);
+    root = t2.mRoot;
+  }
+  linearize(t2, root->getRight());
 }
 
 template <typename Key, typename Value>
@@ -107,21 +120,14 @@ void rotateBST<Key, Value>::transform(rotateBST<Key, Value> &t2) const {
 
   // Linearizing
   Node<Key, Value> *root = t2.mRoot;
-  while (root != NULL) {
-    while (root->getLeft() != NULL) {
-      t2.rightRotate(root);
-    }
-    root = root->getRight();
-  }
+  linearize(t2, root);
 
-  // Moving root into position
   root = t2.mRoot;
   while (t2.mRoot->getKey() != this->mRoot->getKey()) {
     t2.leftRotate(root);
     root = t2.mRoot;
   }
 
-  // Transforming subtrees
   transformSubtree(t2, root->getRight(), this->mRoot->getRight());
   transformSubtree(t2, root->getLeft(), this->mRoot->getLeft());
 }

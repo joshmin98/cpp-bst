@@ -1,8 +1,8 @@
-#include <queue>
 #include <cstdlib>
-#include <iostream>
 #include <fstream>
+#include <iostream>
 #include <map>
+#include <queue>
 #include <set>
 #include <string>
 
@@ -43,7 +43,7 @@ int countZeros(const std::string &key) {
 struct Node {
   int f, g, h;
   std::string key;
-  Node* parent;
+  Node *parent;
 
   Node(const std::string &binString) {
     key = binString;
@@ -82,7 +82,6 @@ public:
   }
 };
 
-
 int main(int argc, char *argv[]) {
   if (argc < 3) {
     return -1;
@@ -99,7 +98,7 @@ int main(int argc, char *argv[]) {
   start->f = start->g + start->h;
 
   std::ifstream infile(argv[2]);
-  int numNodes;
+  int numNodes = 0;
   infile >> numNodes;
   if (numNodes < start->h) {
     return -1;
@@ -111,39 +110,44 @@ int main(int argc, char *argv[]) {
     Node *currNode = new Node(currKey);
     allNodes.insert(std::pair<std::string, Node *>(currKey, currNode));
   }
-  allNodes.insert(std::pair<std::string, Node*>(startNodeKey, start));
+  allNodes.insert(std::pair<std::string, Node *>(startNodeKey, start));
 
-  std::map<Node *, std::set<Node *>> adjacent;
+  std::map<std::string, std::set<Node *>> adjacent;
 
   std::map<std::string, Node *>::iterator it = allNodes.begin();
   while (it != allNodes.end()) {
     std::set<Node *> neighbors;
     for (unsigned int i = 0; i < it->first.size(); ++i) {
-      std::string permutation1 = it->first;
-      std::string permutation2 = it->first;
-      permutation1[i] = '1';
-      permutation2[i] = '0';
-      if (allNodes.find(permutation1) != allNodes.end()) {
-        neighbors.insert(allNodes[permutation1]);
+      std::string permutation = it->first;
+      if (permutation[i] == '0') {
+        permutation[i] = '1';
+      } else {
+        permutation[i] = '0';
       }
-      if (allNodes.find(permutation2) != allNodes.end()) {
-        neighbors.insert(allNodes[permutation2]);
+      if (allNodes.find(permutation) != allNodes.end()) {
+        neighbors.insert(allNodes.find(permutation)->second);
       }
     }
-    adjacent.insert(std::pair<Node*, std::set<Node*>>(it->second, neighbors));
+    adjacent.insert(std::pair<std::string, std::set<Node *>>(it->first, neighbors));
+    ++it;
   }
 
-  std::priority_queue<Node*, std::vector<Node*>, nodeComp> queue;
+  std::priority_queue<Node* , std::vector<Node *>, nodeComp> queue;
 
   queue.push(start);
   int expansions = 0;
   while (!queue.empty() && queue.top()->key != endNodeKey) {
-    std::set<Node*> neighbors = adjacent[queue.top()];
-    std::set<Node*>::iterator it = neighbors.begin();
+    std::set<Node *> neighbors = adjacent.find(queue.top()->key)->second;
+    if (neighbors.empty()) {
+      std::cout << "EMPTY" << std::endl;
+    }
+    std::set<Node *>::iterator it = neighbors.begin();
     while (it != neighbors.end()) {
       (*it)->g = queue.top()->g + bitDistance(queue.top()->key, (*it)->key);
       (*it)->f = (*it)->g + (*it)->h;
       (*it)->parent = queue.top();
+      queue.push(*it);
+      ++it;
     }
     ++expansions;
     queue.pop();
@@ -151,7 +155,7 @@ int main(int argc, char *argv[]) {
   if (queue.empty()) {
     return -1;
   } else {
-    Node* end = queue.top();
+    Node *end = queue.top();
     std::vector<std::string> nodePath;
     while (end != NULL) {
       nodePath.push_back(end->key);

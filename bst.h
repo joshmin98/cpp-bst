@@ -198,6 +198,7 @@ public:
 
 private:
   void updateHeight(Node<Key, Value> *root);
+  void clearHelper(Node<Key, Value>* node);
 
 public:
   /**
@@ -529,9 +530,9 @@ void BinarySearchTree<Key, Value>::remove(const Key &key) {
     } else {
       parent->setRight(NULL);
     }
-
     delete removeNode;
     updateHeight(parent);
+    return;
   }
 
   // Case 2: One left child
@@ -554,6 +555,7 @@ void BinarySearchTree<Key, Value>::remove(const Key &key) {
     if (parent != NULL) {
       updateHeight(parent);
     }
+    return;
   }
 
   // Case 3: One right child
@@ -576,6 +578,7 @@ void BinarySearchTree<Key, Value>::remove(const Key &key) {
     if (parent != NULL) {
       updateHeight(parent);
     }
+    return;
   }
 
   // Case 4: Two children
@@ -625,11 +628,9 @@ void BinarySearchTree<Key, Value>::remove(const Key &key) {
     Node<Key, Value> *left = removeNode->getLeft();
     Node<Key, Value> *right = removeNode->getRight();
     if (left != NULL) {
-
       left->setParent(newRoot);
     }
     if (right != NULL) {
-
       right->setParent(newRoot);
     }
     newRoot->setParent(removeNodeParent);
@@ -646,7 +647,18 @@ void BinarySearchTree<Key, Value>::remove(const Key &key) {
       updateHeight(newRoot);
     }
     updateHeight(predParent);
+    return;
   }
+}
+
+template <typename Key, typename Value>
+void BinarySearchTree<Key, Value>::clearHelper(Node<Key, Value>* node) {
+  if (node == NULL) {
+    return;
+  }
+  clearHelper(node->getRight());
+  clearHelper(node->getLeft());
+  delete node;
 }
 
 /**
@@ -655,12 +667,14 @@ void BinarySearchTree<Key, Value>::remove(const Key &key) {
  */
 template <typename Key, typename Value>
 void BinarySearchTree<Key, Value>::clear() {
-  Node<Key, Value> *removeNode = getSmallestNode();
-  while (removeNode != NULL) {
-    remove(removeNode->getKey());
-    removeNode = getSmallestNode();
-  }
+  clearHelper(mRoot);
   mRoot = NULL;
+  // Node<Key, Value> *removeNode = getSmallestNode();
+  // while (removeNode != NULL) {
+  //   remove(removeNode->getKey());
+  //   removeNode = getSmallestNode();
+  // }
+  // mRoot = NULL;
 }
 
 /**

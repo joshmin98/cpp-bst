@@ -1,0 +1,164 @@
+valgrind --tool=memcheck --leak-check=yes ./bst_test
+Running main() from gtest_main.cc
+[==========] Running 14 tests from 1 test case.
+[----------] Global test environment set-up.
+[----------] 14 tests from BSTTest
+[ RUN      ] BSTTest.Test1_Construction
+[       OK ] BSTTest.Test1_Construction (6 ms)
+[ RUN      ] BSTTest.Test2_EmptyTree
+[       OK ] BSTTest.Test2_EmptyTree (3 ms)
+[ RUN      ] BSTTest.Test3_SingleInsert
+[       OK ] BSTTest.Test3_SingleInsert (7 ms)
+[ RUN      ] BSTTest.Test4_BalancedInsert
+[       OK ] BSTTest.Test4_BalancedInsert (9 ms)
+[ RUN      ] BSTTest.Test5_UnbalancedInsert
+[       OK ] BSTTest.Test5_UnbalancedInsert (6 ms)
+[ RUN      ] BSTTest.Test6_SingleRemove
+[       OK ] BSTTest.Test6_SingleRemove (3 ms)
+[ RUN      ] BSTTest.Test7_RightChildRemove
+[       OK ] BSTTest.Test7_RightChildRemove (4 ms)
+[ RUN      ] BSTTest.Test8_LeftChildRemove
+[       OK ] BSTTest.Test8_LeftChildRemove (3 ms)
+[ RUN      ] BSTTest.Test9_TwoChildrenRemove
+[       OK ] BSTTest.Test9_TwoChildrenRemove (7 ms)
+[ RUN      ] BSTTest.Test10_TwoChildrenRemove
+[       OK ] BSTTest.Test10_TwoChildrenRemove (8 ms)
+[ RUN      ] BSTTest.Test11_InsertAfterClear
+[       OK ] BSTTest.Test11_InsertAfterClear (5 ms)
+[ RUN      ] BSTTest.Test11_InsertAfterRemoveRoot
+[       OK ] BSTTest.Test11_InsertAfterRemoveRoot (3 ms)
+[ RUN      ] BSTTest.Stress1_Insert1000
+[       OK ] BSTTest.Stress1_Insert1000 (27 ms)
+[ RUN      ] BSTTest.Stress2_Remove1000
+[       OK ] BSTTest.Stress2_Remove1000 (84 ms)
+[----------] 14 tests from BSTTest (180 ms total)
+
+[----------] Global test environment tear-down
+[==========] 14 tests from 1 test case ran. (205 ms total)
+[  PASSED  ] 14 tests.
+valgrind --tool=memcheck --leak-check=yes ./rotate_test
+Running main() from gtest_main.cc
+[==========] Running 3 tests from 1 test case.
+[----------] Global test environment set-up.
+[----------] 3 tests from RotateTest
+[ RUN      ] RotateTest.Test1_LeftRotate
+[       OK ] RotateTest.Test1_LeftRotate (18 ms)
+[ RUN      ] RotateTest.Test2_RightRotate
+[       OK ] RotateTest.Test2_RightRotate (6 ms)
+[ RUN      ] RotateTest.Stress1_Transform1000
+[       OK ] RotateTest.Stress1_Transform1000 (84 ms)
+[----------] 3 tests from RotateTest (113 ms total)
+
+[----------] Global test environment tear-down
+[==========] 3 tests from 1 test case ran. (139 ms total)
+[  PASSED  ] 3 tests.
+valgrind --tool=memcheck --leak-check=yes ./bst_test
+Running main() from gtest_main.cc
+[==========] Running 14 tests from 1 test case.
+[----------] Global test environment set-up.
+[----------] 14 tests from BSTTest
+[ RUN      ] BSTTest.Test1_Construction
+[       OK ] BSTTest.Test1_Construction (6 ms)
+[ RUN      ] BSTTest.Test2_EmptyTree
+[       OK ] BSTTest.Test2_EmptyTree (4 ms)
+[ RUN      ] BSTTest.Test3_SingleInsert
+[       OK ] BSTTest.Test3_SingleInsert (7 ms)
+[ RUN      ] BSTTest.Test4_BalancedInsert
+[       OK ] BSTTest.Test4_BalancedInsert (10 ms)
+[ RUN      ] BSTTest.Test5_UnbalancedInsert
+[       OK ] BSTTest.Test5_UnbalancedInsert (6 ms)
+[ RUN      ] BSTTest.Test6_SingleRemove
+[       OK ] BSTTest.Test6_SingleRemove (3 ms)
+[ RUN      ] BSTTest.Test7_RightChildRemove
+[       OK ] BSTTest.Test7_RightChildRemove (4 ms)
+[ RUN      ] BSTTest.Test8_LeftChildRemove
+[       OK ] BSTTest.Test8_LeftChildRemove (4 ms)
+[ RUN      ] BSTTest.Test9_TwoChildrenRemove
+[       OK ] BSTTest.Test9_TwoChildrenRemove (7 ms)
+[ RUN      ] BSTTest.Test10_TwoChildrenRemove
+[       OK ] BSTTest.Test10_TwoChildrenRemove (9 ms)
+[ RUN      ] BSTTest.Test11_InsertAfterClear
+[       OK ] BSTTest.Test11_InsertAfterClear (6 ms)
+[ RUN      ] BSTTest.Test11_InsertAfterRemoveRoot
+[       OK ] BSTTest.Test11_InsertAfterRemoveRoot (4 ms)
+[ RUN      ] BSTTest.Stress1_Insert1000
+[       OK ] BSTTest.Stress1_Insert1000 (30 ms)
+[ RUN      ] BSTTest.Stress2_Remove1000
+[       OK ] BSTTest.Stress2_Remove1000 (88 ms)
+[----------] 14 tests from BSTTest (194 ms total)
+
+[----------] Global test environment tear-down
+[==========] 14 tests from 1 test case ran. (218 ms total)
+[  PASSED  ] 14 tests.
+valgrind --tool=memcheck --leak-check=yes ./rotate_test
+Running main() from gtest_main.cc
+[==========] Running 3 tests from 1 test case.
+[----------] Global test environment set-up.
+[----------] 3 tests from RotateTest
+[ RUN      ] RotateTest.Test1_LeftRotate
+[       OK ] RotateTest.Test1_LeftRotate (19 ms)
+[ RUN      ] RotateTest.Test2_RightRotate
+[       OK ] RotateTest.Test2_RightRotate (6 ms)
+[ RUN      ] RotateTest.Stress1_Transform1000
+[       OK ] RotateTest.Stress1_Transform1000 (83 ms)
+[----------] 3 tests from RotateTest (113 ms total)
+
+[----------] Global test environment tear-down
+[==========] 3 tests from 1 test case ran. (137 ms total)
+[  PASSED  ] 3 tests.
+g++ -g -Wall -std=c++11  hw7_bst_test.cpp -I /usr/include/gtest/ -l gtest -l gtest_main -pthread -o bst_test
+g++ -g -Wall -std=c++11  hw7_rotate_test.cpp -I /usr/include/gtest/ -l gtest -l gtest_main -pthread -o rotate_test
+valgrind --tool=memcheck --leak-check=yes ./bst_test
+Running main() from gtest_main.cc
+[==========] Running 14 tests from 1 test case.
+[----------] Global test environment set-up.
+[----------] 14 tests from BSTTest
+[ RUN      ] BSTTest.Test1_Construction
+[       OK ] BSTTest.Test1_Construction (6 ms)
+[ RUN      ] BSTTest.Test2_EmptyTree
+[       OK ] BSTTest.Test2_EmptyTree (4 ms)
+[ RUN      ] BSTTest.Test3_SingleInsert
+[       OK ] BSTTest.Test3_SingleInsert (6 ms)
+[ RUN      ] BSTTest.Test4_BalancedInsert
+[       OK ] BSTTest.Test4_BalancedInsert (10 ms)
+[ RUN      ] BSTTest.Test5_UnbalancedInsert
+[       OK ] BSTTest.Test5_UnbalancedInsert (6 ms)
+[ RUN      ] BSTTest.Test6_SingleRemove
+[       OK ] BSTTest.Test6_SingleRemove (3 ms)
+[ RUN      ] BSTTest.Test7_RightChildRemove
+[       OK ] BSTTest.Test7_RightChildRemove (4 ms)
+[ RUN      ] BSTTest.Test8_LeftChildRemove
+[       OK ] BSTTest.Test8_LeftChildRemove (3 ms)
+[ RUN      ] BSTTest.Test9_TwoChildrenRemove
+[       OK ] BSTTest.Test9_TwoChildrenRemove (7 ms)
+[ RUN      ] BSTTest.Test10_TwoChildrenRemove
+[       OK ] BSTTest.Test10_TwoChildrenRemove (8 ms)
+[ RUN      ] BSTTest.Test11_InsertAfterClear
+[       OK ] BSTTest.Test11_InsertAfterClear (5 ms)
+[ RUN      ] BSTTest.Test11_InsertAfterRemoveRoot
+[       OK ] BSTTest.Test11_InsertAfterRemoveRoot (4 ms)
+[ RUN      ] BSTTest.Stress1_Insert1000
+[       OK ] BSTTest.Stress1_Insert1000 (27 ms)
+[ RUN      ] BSTTest.Stress2_Remove1000
+[       OK ] BSTTest.Stress2_Remove1000 (85 ms)
+[----------] 14 tests from BSTTest (183 ms total)
+
+[----------] Global test environment tear-down
+[==========] 14 tests from 1 test case ran. (208 ms total)
+[  PASSED  ] 14 tests.
+valgrind --tool=memcheck --leak-check=yes ./rotate_test
+Running main() from gtest_main.cc
+[==========] Running 3 tests from 1 test case.
+[----------] Global test environment set-up.
+[----------] 3 tests from RotateTest
+[ RUN      ] RotateTest.Test1_LeftRotate
+[       OK ] RotateTest.Test1_LeftRotate (19 ms)
+[ RUN      ] RotateTest.Test2_RightRotate
+[       OK ] RotateTest.Test2_RightRotate (6 ms)
+[ RUN      ] RotateTest.Stress1_Transform1000
+[       OK ] RotateTest.Stress1_Transform1000 (81 ms)
+[----------] 3 tests from RotateTest (111 ms total)
+
+[----------] Global test environment tear-down
+[==========] 3 tests from 1 test case ran. (138 ms total)
+[  PASSED  ] 3 tests.

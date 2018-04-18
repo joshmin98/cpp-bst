@@ -111,33 +111,33 @@ TEST_F(RotateTest, Test2_RightRotate)
 	simpleTreeCheck(root);
 }
 
-TEST_F(RotateTest, Test3_Transform) 
-{
-	InheritedRotate<int, int> t1, t2;
-	t1.insert(std::make_pair(2, 1));
-	t1.insert(std::make_pair(1, 1));
-	t1.insert(std::make_pair(3, 1));
-	t2.insert(std::make_pair(3, 2));
-	t2.insert(std::make_pair(2, 2));
-	t2.insert(std::make_pair(1, 2));
-	t1.transform(t2);
+// TEST_F(RotateTest, Test3_Transform) 
+// {
+// 	InheritedRotate<int, int> t1, t2;
+// 	t1.insert(std::make_pair(2, 1));
+// 	t1.insert(std::make_pair(1, 1));
+// 	t1.insert(std::make_pair(3, 1));
+// 	t2.insert(std::make_pair(3, 2));
+// 	t2.insert(std::make_pair(2, 2));
+// 	t2.insert(std::make_pair(1, 2));
+// 	t1.transform(t2);
 
-	EXPECT_EQ(2, t2.height());
-	EXPECT_EQ(true, t2.isBalanced());
+// 	EXPECT_EQ(2, t2.height());
+// 	EXPECT_EQ(true, t2.isBalanced());
 
-	Node<int, int>* root = t2.getRoot();
-	ASSERT_NE(nullptr, root);
-	EXPECT_EQ(2, root->getKey());
-	EXPECT_EQ(2, root->getValue());
+// 	Node<int, int>* root = t2.getRoot();
+// 	ASSERT_NE(nullptr, root);
+// 	EXPECT_EQ(2, root->getKey());
+// 	EXPECT_EQ(2, root->getValue());
 
-	ASSERT_NE(nullptr, root->getRight());
-	EXPECT_EQ(3, root->getRight()->getKey());
-	EXPECT_EQ(2, root->getRight()->getValue());
+// 	ASSERT_NE(nullptr, root->getRight());
+// 	EXPECT_EQ(3, root->getRight()->getKey());
+// 	EXPECT_EQ(2, root->getRight()->getValue());
 
-	ASSERT_NE(nullptr, root->getLeft());
-	EXPECT_EQ(1, root->getLeft()->getKey());
-	EXPECT_EQ(2, root->getLeft()->getValue());
-}
+// 	ASSERT_NE(nullptr, root->getLeft());
+// 	EXPECT_EQ(1, root->getLeft()->getKey());
+// 	EXPECT_EQ(2, root->getLeft()->getValue());
+// }
 
 TEST_F(RotateTest, Stress1_Transform1000) 
 {

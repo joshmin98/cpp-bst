@@ -1,0 +1,37 @@
+Running main() from gtest_main.cc
+[==========] Running 14 tests from 1 test case.
+[----------] Global test environment set-up.
+[----------] 14 tests from BSTTest
+[ RUN      ] BSTTest.Test1_Construction
+[       OK ] BSTTest.Test1_Construction (6 ms)
+[ RUN      ] BSTTest.Test2_EmptyTree
+[       OK ] BSTTest.Test2_EmptyTree (4 ms)
+[ RUN      ] BSTTest.Test3_SingleInsert
+[       OK ] BSTTest.Test3_SingleInsert (7 ms)
+[ RUN      ] BSTTest.Test4_BalancedInsert
+[       OK ] BSTTest.Test4_BalancedInsert (8 ms)
+[ RUN      ] BSTTest.Test5_UnbalancedInsert
+[       OK ] BSTTest.Test5_UnbalancedInsert (6 ms)
+[ RUN      ] BSTTest.Test6_SingleRemove
+[       OK ] BSTTest.Test6_SingleRemove (3 ms)
+[ RUN      ] BSTTest.Test7_RightChildRemove
+[       OK ] BSTTest.Test7_RightChildRemove (4 ms)
+[ RUN      ] BSTTest.Test8_LeftChildRemove
+[       OK ] BSTTest.Test8_LeftChildRemove (3 ms)
+[ RUN      ] BSTTest.Test9_TwoChildrenRemove
+[       OK ] BSTTest.Test9_TwoChildrenRemove (6 ms)
+[ RUN      ] BSTTest.Test10_TwoChildrenRemove
+[       OK ] BSTTest.Test10_TwoChildrenRemove (8 ms)
+[ RUN      ] BSTTest.Test11_InsertAfterClear
+[       OK ] BSTTest.Test11_InsertAfterClear (5 ms)
+[ RUN      ] BSTTest.Test11_InsertAfterRemoveRoot
+[       OK ] BSTTest.Test11_InsertAfterRemoveRoot (3 ms)
+[ RUN      ] BSTTest.Stress1_Insert1000
+[       OK ] BSTTest.Stress1_Insert1000 (27 ms)
+[ RUN      ] BSTTest.Stress2_Remove1000
+[       OK ] BSTTest.Stress2_Remove1000 (85 ms)
+[----------] 14 tests from BSTTest (180 ms total)
+
+[----------] Global test environment tear-down
+[==========] 14 tests from 1 test case ran. (206 ms total)
+[  PASSED  ] 14 tests.

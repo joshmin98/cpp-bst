@@ -1,6 +1,7 @@
 #include <cstdlib>
 #include <fstream>
 #include <iostream>
+#include <limits>
 #include <map>
 #include <queue>
 #include <set>
@@ -52,7 +53,7 @@ struct Node {
       target += "1";
     }
     h = bitDistance(key, target);
-    g = 0;
+    g = std::numeric_limits<int>::max();
     parent = NULL;
   }
 };
@@ -70,7 +71,7 @@ public:
       } else if (lhs->h < rhs->h) {
         return false;
       } else {
-        for (int i = lhs->key.length() - 1; i >= 0; ++i) {
+        for (int i = lhs->key.length() - 1; i >= 0; --i) {
           if (lhs->key[i] == '1' && rhs->key[i] == '0') {
             return true;
           } else if (lhs->key[i] == '0' && rhs->key[i] == '1') {
@@ -104,6 +105,7 @@ int main(int argc, char *argv[]) {
     return -1;
   }
 
+  // Reading in all nodes
   std::map<std::string, Node *> allNodes;
   std::string currKey;
   while (getline(infile, currKey)) {
@@ -111,9 +113,11 @@ int main(int argc, char *argv[]) {
     allNodes.insert(std::pair<std::string, Node *>(currKey, currNode));
   }
   allNodes.insert(std::pair<std::string, Node *>(startNodeKey, start));
+  infile.close();
 
   std::map<std::string, std::set<Node *>> adjacent;
 
+  // Handling neighbors
   std::map<std::string, Node *>::iterator it = allNodes.begin();
   while (it != allNodes.end()) {
     std::set<Node *> neighbors;
@@ -128,14 +132,17 @@ int main(int argc, char *argv[]) {
         neighbors.insert(allNodes.find(permutation)->second);
       }
     }
-    adjacent.insert(std::pair<std::string, std::set<Node *>>(it->first, neighbors));
+    adjacent.insert(
+        std::pair<std::string, std::set<Node *>>(it->first, neighbors));
     ++it;
   }
 
-  std::priority_queue<Node* , std::vector<Node *>, nodeComp> queue;
+  std::priority_queue<Node *, std::vector<Node *>, nodeComp> queue;
 
+  // A* priority queue
   queue.push(start);
   int expansions = 0;
+  std::set<Node *> visitedNodes;
   while (!queue.empty() && queue.top()->key != endNodeKey) {
     std::set<Node *> neighbors = adjacent.find(queue.top()->key)->second;
     if (neighbors.empty()) {
@@ -143,15 +150,24 @@ int main(int argc, char *argv[]) {
     }
     std::set<Node *>::iterator it = neighbors.begin();
     while (it != neighbors.end()) {
-      (*it)->g = queue.top()->g + bitDistance(queue.top()->key, (*it)->key);
-      (*it)->f = (*it)->g + (*it)->h;
-      (*it)->parent = queue.top();
-      queue.push(*it);
+      if ((*it)->g >
+          (queue.top()->g + bitDistance(queue.top()->key, (*it)->key))) {
+        (*it)->g = queue.top()->g + bitDistance(queue.top()->key, (*it)->key);
+        (*it)->f = (*it)->g + (*it)->h;
+        (*it)->parent = queue.top();
+        queue.push(*it);
+      }
       ++it;
     }
-    ++expansions;
+    if (visitedNodes.find(queue.top()) == visitedNodes.end()) {
+      visitedNodes.insert(queue.top());
+      ++expansions;
+    }
     queue.pop();
   }
+  --expansions;
+
+  // Outputing results
   if (queue.empty()) {
     return -1;
   } else {
@@ -161,11 +177,24 @@ int main(int argc, char *argv[]) {
       nodePath.push_back(end->key);
       end = end->parent;
     }
-    std::vector<std::string>::iterator nodeKey = nodePath.begin();
-    std::cout << expansions << std::endl;
-    while (nodeKey != nodePath.end()) {
+    std::vector<std::string>::iterator nodeKey = nodePath.end();
+    nodeKey--;
+    while (nodeKey != nodePath.begin() - 1) {
       std::cout << (*nodeKey) << std::endl;
+      nodeKey--;
     }
+    std::cout << "expansions = " << expansions << std::endl;
+  }
+
+  // Cleanup
+  std::map<std::string, Node *>::iterator clean = allNodes.begin();
+  while (clean != allNodes.end()) {
+    if (clean->second != NULL) {
+      Node *deleteNode = clean->second;
+      delete deleteNode;
+      clean->second = NULL;
+    }
+    ++clean;
   }
   return 0;
 }
